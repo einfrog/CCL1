@@ -1,0 +1,31 @@
+.chakra-petch-medium {
+    font-family: "Chakra Petch", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+.chakra-petch-light {
+      font-family: "Chakra Petch Light", serif;
+      font-weight: 300;
+      font-style: normal;
+    }
+
+div {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-family: "Chakra Petch";
+    text-align: center;
+}
+
+#healthDisplay {
+    font-family: "Chakra Petch Light";
+}
+
+#gameContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
