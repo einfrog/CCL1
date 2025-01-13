@@ -15,6 +15,7 @@ inventory graphic;
 picking up scraps (collision detection, appearance in inventory(react to collision));
 
 TO DO:
+scraps->remove push to allgameobjects from basegameobjects constructor because of GUI scraps; only push the scraps that are drawn on map into allgameobjects
 background graphic;
 inventory and scrap objects (canvas);
 canvas border stops player (player bumps into wall);
