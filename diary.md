@@ -8,10 +8,9 @@ gameloop and setup for dummy sprite (skeleton);
 new classes: inventory, healthbar and recipebox (extend BaseGameObjects and are drawn in the gameloop);
 draw placeholders for healthbar;
 scrap class, draw dummy scrap on canvas;
-border collision with Canvas (bump into Canvas;
+border collision with Canvas (bump into Canvas) in update function;
 
 DOING NEXT:
-transfer stayInCanvas to global;
 inventory graphic;
 picking up scraps (collision detection, appearance in inventory(react to collision));
 
