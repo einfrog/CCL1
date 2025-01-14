@@ -21,10 +21,13 @@ dummy scraps\
 default scraps array and displayScraps, displayScrap Class\
 draw display scraps on canvas with array\
 adapt gameloop so only gameobjects that are not display scraps are checked for collision\
+draw dummy healthbar, recipebox and inventory pox pngs\
+randomCoordinates function for scrap\
+overwrite restrictions for randomCoordinates to prevent them from being under UI\
+spaceship dummy, spaceshipWIP object, draw spaceship on canvas\
 \
 DOING NEXT:\
 picking up scraps (collision detection, appearance in inventory(react to collision));\
-do UI as HTML elements\
 \
 TO DO:\
 inventory graphic;\
