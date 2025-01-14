@@ -38,6 +38,8 @@ dropping off scraps at the spaceship (create array to push "installed" items int
 ensure all necessary scraps are generated on maps\
 \
 TO DO:\
+NEW: scrap weapon/tool in inventory, implement just one empty inventory slot\
+key has to be pressed to pick up item, item can be dropped, input items in right order (like recipe)\
 adjust collision detection (only for player)\
 inventory graphic;\
 DOM manipulation for recipies\
