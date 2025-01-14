@@ -24,6 +24,23 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
+    background-image: url("../img/background.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#background {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 400;
+    width: 800px; 
+    height: 600px;
+    /* background-image: url("../img/background.png"); */
+    background-size: cover;
+
 }
 
 /* #upperUI {

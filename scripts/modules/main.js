@@ -45,7 +45,7 @@ function setupGame() {
     const margin = 10;
 
     //instantiate objects
-    global.playerObject = new RoryPlayer(140, 360, 64, 64);
+    global.playerObject = new RoryPlayer(100, 360, 50, 170);
     global.inventory = new Inventory(global.canvas.width / 2 - 180 / 2, 600 - 60 - margin, "./img/inventoryPlaceholder.png");
     global.healthbar = new Healthbar(margin, margin, "./img/healthbarPlaceholder.png");
     global.recipeBox = new RecipeBox(recipeBoxX, margin, "./img/recipeBoxPlaceholder.png");

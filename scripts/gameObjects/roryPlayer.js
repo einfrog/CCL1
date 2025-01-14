@@ -37,7 +37,8 @@ class RoryPlayer extends BaseGameObject {
     constructor(x, y, width, height) {
         super(x, y, width, height);
         //this.loadImages(["./images/apple.png"]);
-        this.loadImagesFromSpritesheet("./img/BODY_skeleton.png", 9, 4);
+        this.loadImagesFromSpritesheet("./img/dummyRory.png", 4, 1);
+        console.log(this.animationData.animationSprites.length)
     }
 
     // reactToCollision = function(collidingObject) {
