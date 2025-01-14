@@ -12,12 +12,23 @@ border collision with Canvas (bump into Canvas) in update function;\
 canvas border stops player (player bumps into wall);\
 custom font (Chekra Petch);\
 \
+\
+\
+\
+JAN14th:\
+DONE TODAY: \
+dummy scraps\
+default scraps array and displayScraps, displayScrap Class\
+draw display scraps on canvas with array\
+adapt gameloop so only gameobjects that are not display scraps are checked for collision\
+\
 DOING NEXT:\
-inventory graphic;\
 picking up scraps (collision detection, appearance in inventory(react to collision));\
+do UI as HTML elements\
 \
 TO DO:\
-scraps->remove push to allgameobjects from basegameobjects constructor because of GUI scraps; only push the scraps that are drawn on map into allgameobjects\
+inventory graphic;\
+DOM manipulation for recipies\
 background graphic;\
 inventory and scrap objects (canvas);\
 fix stop (jaggy movement);\
