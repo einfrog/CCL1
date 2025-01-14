@@ -4,6 +4,8 @@ import { global } from "./global.js";
 import { Healthbar } from "../gameObjects/healthbar.js";
 import { RecipeBox } from "../gameObjects/recipeBox.js";
 import { Scrap } from "../gameObjects/scrap.js";
+import { DisplayScrap } from "../gameObjects/displayScrap.js";
+import { Spaceship } from "../gameObjects/spaceship.js";
 
 
 function gameLoop(totalRunningTime) {
@@ -17,10 +19,14 @@ function gameLoop(totalRunningTime) {
         // if (global.allGameObjects[i].active == true) {
         global.allGameObjects[i].storePositionOfPreviousFrame();
         global.allGameObjects[i].update();
-        global.checkCollisionWithAnyOther(global.allGameObjects[i]);
-        //global.playerObject.stayInCanvas();
+        if (!(global.allGameObjects[i].name === "DisplayScrap")) {
+            // console.log("collision should happen...")
+            global.checkCollisionWithAnyOther(global.allGameObjects[i]);
+        } else {
+            // console.log(global.allGameObjects[i])
+        }
         global.allGameObjects[i].draw();
-        // console.log(global.allGameObjects);
+
         // }
     }
 
@@ -29,14 +35,37 @@ function gameLoop(totalRunningTime) {
 }
 
 function setupGame() {
-    global.playerObject = new RoryPlayer(140, 360, 64, 64);
-    global.inventory = new Inventory(global.canvas.width / 2 - 180 / 2, 600 - 60 - 10);
-    global.healthbar = new Healthbar(10, 10);
-    global.recipeBox = new RecipeBox(global.canvas.width - 310, 10);
-    global.scraps.push(new Scrap(100, 100, 30, 30, "./img/scraps/placeholder1.png"));
-    console.log(global.scraps[0]);
-    console.log(global.allGameObjects);
+    //get random coordinates for the scraps
+    //provide restriction parameters so scraps don't spawn under ui recipeBox, healthbar or inventory
+    global.getRandomCoordinates(100, global.getCanvasBounds().right - 100, 100, global.getCanvasBounds().bottom - 100);
+    // test random coordinates
+    console.log(global.randomX, global.randomY);
+    
+    //set variables to make debugging easier
+    const recipeBoxX = global.canvas.width - 250;
+    const defaultScrapSize = 30;
+    const displayScrapSize = 50;
+    const margin = 10;
 
+    //instantiate objects
+    global.playerObject = new RoryPlayer(140, 360, 64, 64);
+    global.inventory = new Inventory(global.canvas.width / 2 - 180 / 2, 600 - 60 - margin, "./img/inventoryPlaceholder.png");
+    global.healthbar = new Healthbar(margin, margin, "./img/healthbarPlaceholder.png");
+    global.recipeBox = new RecipeBox(recipeBoxX, margin, "./img/recipeBoxPlaceholder.png");
+    global.spaceship = new Spaceship(global.canvas.width / 2 - 120 / 2, margin, 120, 120, "./img/spaceshipPlaceholder.png")
+
+    //draw the scraps on random positions on the map
+    global.scraps.push(new Scrap(global.randomX - defaultScrapSize, global.randomY - defaultScrapSize, defaultScrapSize, defaultScrapSize, "./img/scraps/placeholder1.png"));
+    // draw display scraps into inventory
+    for (let i = 0; i < 5; i++) {
+        global.displayScraps.push(new DisplayScrap(recipeBoxX + margin + 45 * i, 15, displayScrapSize, displayScrapSize, `./img/scraps/placeholder${i + 1}.png`))
+    }
+    
+    console.log(global.scraps);
+    // console.log(global.displayScraps);
+    console.log(global.allGameObjects);
+    // console.log(global.inventory);
+    
 }
 
 setupGame();

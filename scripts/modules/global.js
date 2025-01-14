@@ -9,8 +9,11 @@ global.playerObject = {};
 global.inventory = {};
 global.healthbar = {};
 global.recipeBox = {};
-global.scrap1 = {};
+global.displayScraps = [];
 global.scraps = [];
+global.randomX = 0;
+global.randomY = 0;
+global.spaceship = {};
 
 global.getCanvasBounds = function () {
     let bounds = {
@@ -49,5 +52,16 @@ global.detectBoxCollision = function (gameObject1, gameObject2) {
     }
     return false;
 }
+
+global.getRandomCoordinates = function(minX, maxX, minY, maxY) {
+
+    this.randomX = Math.random() * maxX + minX;
+    this.randomY = Math.random() * maxY + minY;
+}
+
+//function to be called when scrap is collected
+// global.putScrapInInventory = function() {
+//     this.ctx.clearRect(global.scraps[i].x, global.scraps[i].x, global.scraps[i].width, global.scraps[i].height);
+// }
 
 export { global }

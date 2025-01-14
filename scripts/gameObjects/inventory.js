@@ -4,15 +4,15 @@ import { global } from "../modules/global.js";
 class Inventory extends BaseGameObject {
     name = "Inventory";
 
-    //replace with inventory bar image
-    draw = function () {
-        global.ctx.beginPath();
-        global.ctx.rect(this.x, this.y, this.width, this.height);
-        global.ctx.stroke();
-    }
+    // //replace with inventory bar image
+    // draw = function () {
+    //     global.ctx.drawImage(src, this.x, this.y, this.width, this.height);
+    // }
 
-    constructor(x, y) {
+    constructor(x, y, src) {
         super(x, y, 180, 60);
+        this.loadImages([src]);
+
     }
 
 }

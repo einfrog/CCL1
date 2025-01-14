@@ -4,15 +4,16 @@ import { global } from "../modules/global.js";
 class RecipeBox extends BaseGameObject {
     name = "RecipeBox";
 
-    //replace with recipe box
-    draw = function () {
-        global.ctx.beginPath();
-        global.ctx.rect(this.x, this.y, this.width, this.height);
-        global.ctx.stroke();
-    }
+    // //replace with recipe box
+    // draw = function () {
+    //     global.ctx.beginPath();
+    //     global.ctx.rect(this.x, this.y, this.width, this.height);
+    //     global.ctx.stroke();
+    // }
 
-    constructor(x, y) {
-        super(x, y, 300, 60);
+    constructor(x, y, src) {
+        super(x, y, 250 - 10, 60);
+        this.loadImages([src]);
     }
 
 }

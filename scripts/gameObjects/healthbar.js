@@ -4,15 +4,16 @@ import { global } from "../modules/global.js";
 class Healthbar extends BaseGameObject {
     name = "Healthbar";
 
-    //replace with health bar image
-    draw = function () {
-        global.ctx.beginPath();
-        global.ctx.rect(this.x, this.y, this.width, this.height);
-        global.ctx.stroke();
-    }
+    // //replace with health bar image
+    // draw = function () {
+    //     global.ctx.beginPath();
+    //     global.ctx.rect(this.x, this.y, this.width, this.height);
+    //     global.ctx.stroke();
+    // }
 
-    constructor(x, y) {
+    constructor(x, y, src) {
         super(x, y, 180, 60);
+        this.loadImages([src]);
     }
 
 }

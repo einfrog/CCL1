@@ -19,13 +19,16 @@ h1 {
     text-align: center;
 }
 
-#healthDisplay {
-    font-family: "Chakra Petch Light";
-}
-
 #gameContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
+
+/* #upperUI {
+    display: flex;
+    align-items: flex-start;
+    justify-content:space-between;
+    
+} */
