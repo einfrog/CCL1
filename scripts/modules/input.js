@@ -1,9 +1,12 @@
 import { global } from "./global.js";
 
+let lastPressedKey;
+
 function move(event) {
+    lastPressedKey = event.key;
 
     //movement for player, for WASD
-    switch(event.key) {
+    switch (event.key) {
         case "d":
             // IDLE SPRITE(?)
             // if (global.playerObject.xVelocity == 0)
@@ -24,7 +27,7 @@ function move(event) {
             global.playerObject.yVelocity = 0;
             // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
             break;
-       case "w":
+        case "w":
             global.playerObject.xVelocity = 0;
             global.playerObject.yVelocity = -200;
             //switch set of sprites to be used
@@ -41,11 +44,12 @@ function move(event) {
     }
 }
 
-function stop() {
-
-    //stop
-    global.playerObject.xVelocity = 0;
-    global.playerObject.yVelocity = 0;
+function stop(event) {
+    if (event.key === lastPressedKey) {
+        //stop
+        global.playerObject.xVelocity = 0;
+        global.playerObject.yVelocity = 0;
+    }
 }
 
 //add movement to pressing WASD
