@@ -20,16 +20,23 @@ DONE TODAY: \
 dummy scraps\
 default scraps array and displayScraps, displayScrap Class\
 draw display scraps on canvas with array\
-adapt gameloop so only gameobjects that are not display scraps are checked for collision\
 draw dummy healthbar, recipebox and inventory pox pngs\
 randomCoordinates function for scrap\
-overwrite restrictions for randomCoordinates to prevent them from being under UI\
+overwrite restrictions for randomCoordinates to prevent them from being under UI    REWORK!!!!!\
 spaceship dummy, spaceshipWIP object, draw spaceship on canvas\
+collision detection for scraps and player\
+picking up scraps (collision detection, appearance in inventory;\
+new isDrawn attribute to for scrap collision reaction\
 \
 DOING NEXT:\
-picking up scraps (collision detection, appearance in inventory(react to collision));\
+border collision for spaceship\
+draw 10 scraps on canvas (with distance in between)\
+generate random recipe array\
+dropping off scraps at the spaceship (create array to push "installed" items into, check if array is identical with array from recipe\
+ensure all necessary scraps are generated on maps\
 \
 TO DO:\
+adjust collision detection (only for player)\
 inventory graphic;\
 DOM manipulation for recipies\
 background graphic;\
