@@ -27,6 +27,8 @@ spaceship dummy, spaceshipWIP object, draw spaceship on canvas\
 collision detection for scraps and player\
 picking up scraps (collision detection, appearance in inventory;\
 new isDrawn attribute to for scrap collision reaction\
+implement changing sprites for Rory (dummy sprites)\
+add background image\
 \
 DOING NEXT:\
 border collision for spaceship\
