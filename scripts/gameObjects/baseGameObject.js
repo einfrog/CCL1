@@ -1,7 +1,8 @@
 import { global } from "../modules/global.js";
 
 class BaseGameObject {
-    // active = true;
+    active = true;
+    isDrawn = true;
     name = "";
     x = 100;
     y = 500;

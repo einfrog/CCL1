@@ -3,8 +3,10 @@ import { global } from "../modules/global.js";
 
 class DisplayScrap extends BaseGameObject {
     name = "DisplayScrap";
+    active = false;
+    id = 0;
 
-    constructor(x, y, width, height, src) {
+    constructor(x, y, width, height, src, id) {
         super(x, y, width, height);
         this.loadImages([src]);
     }

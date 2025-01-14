@@ -19,13 +19,10 @@ function gameLoop(totalRunningTime) {
         // if (global.allGameObjects[i].active == true) {
         global.allGameObjects[i].storePositionOfPreviousFrame();
         global.allGameObjects[i].update();
-        if (!(global.allGameObjects[i].name === "DisplayScrap")) {
-            // console.log("collision should happen...")
-            global.checkCollisionWithAnyOther(global.allGameObjects[i]);
-        } else {
-            // console.log(global.allGameObjects[i])
+        global.checkCollisionWithAnyOther(global.allGameObjects[i]);
+        if (global.allGameObjects[i].isDrawn == true) {
+            global.allGameObjects[i].draw();
         }
-        global.allGameObjects[i].draw();
 
         // }
     }
@@ -58,11 +55,11 @@ function setupGame() {
     global.scraps.push(new Scrap(global.randomX - defaultScrapSize, global.randomY - defaultScrapSize, defaultScrapSize, defaultScrapSize, "./img/scraps/placeholder1.png"));
     // draw display scraps into inventory
     for (let i = 0; i < 5; i++) {
-        global.displayScraps.push(new DisplayScrap(recipeBoxX + margin + 45 * i, 15, displayScrapSize, displayScrapSize, `./img/scraps/placeholder${i + 1}.png`))
+        global.displayScraps.push(new DisplayScrap(recipeBoxX + margin + 45 * i, 15, displayScrapSize, displayScrapSize, `./img/scraps/placeholder${i + 1}.png`, i + 1))
     }
     
     console.log(global.scraps);
-    // console.log(global.displayScraps);
+    console.log(global.displayScraps);
     console.log(global.allGameObjects);
     // console.log(global.inventory);
     

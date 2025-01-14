@@ -3,6 +3,7 @@ import { global } from "../modules/global.js";
 
 class Inventory extends BaseGameObject {
     name = "Inventory";
+    active = false;
 
     // //replace with inventory bar image
     // draw = function () {

@@ -14,6 +14,7 @@ global.scraps = [];
 global.randomX = 0;
 global.randomY = 0;
 global.spaceship = {};
+global.inventoryScrap = 0;
 
 global.getCanvasBounds = function () {
     let bounds = {
@@ -29,7 +30,7 @@ global.getCanvasBounds = function () {
 global.checkCollisionWithAnyOther = function (givenObject) {
     for (let i = 0; i < global.allGameObjects.length; i++) {
         let otherObject = global.allGameObjects[i];
-        if (otherObject.active == true) {
+        if (givenObject.active == true && otherObject.active == true) {
             let collisionHappened = this.detectBoxCollision(givenObject, otherObject);
             if (collisionHappened) {
                 givenObject.reactToCollision(otherObject);
@@ -60,8 +61,7 @@ global.getRandomCoordinates = function(minX, maxX, minY, maxY) {
 }
 
 //function to be called when scrap is collected
-// global.putScrapInInventory = function() {
-//     this.ctx.clearRect(global.scraps[i].x, global.scraps[i].x, global.scraps[i].width, global.scraps[i].height);
-// }
+global.putScrapInInventory = function() {
+}
 
 export { global }

@@ -6,9 +6,14 @@ class Scrap extends BaseGameObject {
 
     reactToCollision = function(collidingObject)  {
         if (collidingObject.name == "RoryPlayer") {
-            // global.putScrapInInventory();
+            // this.isDrawn = false;
+            this.active = false;
+            this.x = 310 + 10 + 50+10+50+10;
+            this.y = 600 - 10 - 50;
+            global.inventoryScrap = this;
+            console.log("collided with player");
+            console.log("InventoryScrap: ", global.inventoryScrap);
         }
-        console.log("collided with player")
     }
 
     constructor(x, y, width, height, src) {

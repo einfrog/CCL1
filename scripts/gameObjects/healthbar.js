@@ -3,6 +3,7 @@ import { global } from "../modules/global.js";
 
 class Healthbar extends BaseGameObject {
     name = "Healthbar";
+    active = false;
 
     // //replace with health bar image
     // draw = function () {

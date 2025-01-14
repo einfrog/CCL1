@@ -3,6 +3,7 @@ import { global } from "../modules/global.js";
 
 class RecipeBox extends BaseGameObject {
     name = "RecipeBox";
+    active = false;
 
     // //replace with recipe box
     // draw = function () {
