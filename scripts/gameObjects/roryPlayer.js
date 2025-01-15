@@ -5,6 +5,7 @@ class RoryPlayer extends BaseGameObject {
     name = "RoryPlayer";
     xVelocity = 0;
     yVelocity = 0;
+    collidingScrap = null;
 
     // //bump in canvas border
     // stayInCanvas = function () {

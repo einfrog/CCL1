@@ -3,6 +3,7 @@ import { global } from "../modules/global.js";
 class BaseGameObject {
     active = true;
     isDrawn = true;
+    // colliding = false;
     name = "";
     x = 100;
     y = 500;

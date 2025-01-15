@@ -54,9 +54,23 @@ function stop(event) {
 
 //function to either install scraps or drop them   
 function manageInventory(event) {
-    if (global.inventoryScrap !== null) {
-        switch (event.key) {
-            case "i":
+
+    switch (event.key) {
+        //pick up scrap
+        case "j":
+            if (global.playerObject.collidingScrap !== null) {
+                global.inventoryScrap = global.playerObject.collidingScrap;
+                console.log("InventoryScrap: ", global.inventoryScrap);
+
+                global.playerObject.collidingScrap.active = false;
+                global.playerObject.collidingScrap.x = 310 + 10 + 50 + 10 + 50 + 10;
+                global.playerObject.collidingScrap.y = 600 - 10 - 50;
+                global.playerObject.collidingScrap = null;
+            }
+            break;
+            //install scrap
+        case "l":
+            if (global.inventoryScrap !== null) {
                 console.log("installing scrap");
                 global.installedScraps.push(global.inventoryScrap);
                 console.log("Installed Scraps: ", global.installedScraps);
@@ -75,25 +89,43 @@ function manageInventory(event) {
                         global.installedScraps[i].y = 10 + 70;
                     }
                 }
-                break;
-            case "u":
-                //DOESNT WORK
-                // console.log("trying to drop scrap");
-                // global.inventoryScrap.x += 10;
-        }
+                global.checkScraps();
+            }
+            break;
+        //drop scrap
+        case "k":
+            if (global.inventoryScrap !== null) {
+                //drop scraps above or below character
+                console.log("trying to drop scrap");
+                //drop above if middle of character is below middle of canvas
+                if(global.playerObject.y + global.playerObject.height / 2 > global.canvas.height / 2) {
+                    global.inventoryScrap.y = global.playerObject.y - 100;   
+                } else {
+                    //drop below if middle of character is above middle of canvas
+                    global.inventoryScrap.y = global.playerObject.y + global.playerObject.height + 100;
+                }
+                global.inventoryScrap.x = global.playerObject.x;
+                global.inventoryScrap.active = true;
+                console.log(global.inventoryScrap);
+                global.inventoryScrap = null;
+            }
+            break;
 
 
-        // for (let i in global.installedScraps) {
-        //     if (global.installedScraps.length < 4) {
-        //         global.installedScraps[i].x = (global.canvas.width / 2 - 120 / 2 + 10 + (35 * i));
-        //         global.installedScraps[i].y = 10 + 10;
-        //     } else {
-        //         global.installedScraps[i].x = (global.canvas.width / 2 - 120 / 2 + 10 + (35 * i));
-        //         global.installedScraps[i].y = 10 + 70;
-        //     }
-
-        // }
     }
+
+
+    // for (let i in global.installedScraps) {
+    //     if (global.installedScraps.length < 4) {
+    //         global.installedScraps[i].x = (global.canvas.width / 2 - 120 / 2 + 10 + (35 * i));
+    //         global.installedScraps[i].y = 10 + 10;
+    //     } else {
+    //         global.installedScraps[i].x = (global.canvas.width / 2 - 120 / 2 + 10 + (35 * i));
+    //         global.installedScraps[i].y = 10 + 70;
+    //     }
+
+    // }
+
 }
 
 //add movement to pressing WASD

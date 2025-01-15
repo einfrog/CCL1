@@ -36,7 +36,7 @@ function setupGame() {
 
 
     global.getRecipe();
-    console.log("Recipe Scraps: ", global.recipeScraps);
+    console.log("Recipe Scraps: ", global.recipeScrapIDs);
 
 
 
@@ -52,39 +52,49 @@ function setupGame() {
     global.healthbar = new Healthbar(margin, margin, "./img/healthbarPlaceholder.png");
     global.recipeBox = new RecipeBox(recipeBoxX, margin, "./img/recipeBoxPlaceholder.png");
     global.spaceship = new Spaceship(global.canvas.width / 2 - 120 / 2, margin, 120, 120, "./img/spaceshipPlaceholder.png");
-    global.SpaceShipVicinity = new SpaceShipVicinity;
+    global.spaceShipVicinity = new SpaceShipVicinity;
 
 
-    //draw the scraps on random positions on the map
-    for (let i = 0; i < 10; i++) {
+    //draw the scraps from the recipe
+    for (const i of global.recipeScrapIDs){
+        console.log("recipe scraps: ", global.recipeScrapIDs);
+        console.log("i: ", i);
+        global.getRandomCoordinates(100, global.getCanvasBounds().right - defaultScrapSize, 130, 530 - defaultScrapSize);
+        global.scraps.push(new Scrap(global.randomX, global.randomY, defaultScrapSize, defaultScrapSize, `./img/scraps/placeholder${i}.png`, i));
+        console.log("Scraps: ", global.scraps);
+
+    }
+
+    //draw 5 random scraps
+    for (let i = 0; i < 5; i++) {
         //get random coordinates for the scraps
         //provide restriction parameters so scraps don't spawn under ui recipeBox, healthbar or inventory
-        global.getRandomCoordinates(100, global.getCanvasBounds().right - 100, 100, global.getCanvasBounds().bottom - 100);
+        //get random coordinates for drwing the scraps
+        global.getRandomCoordinates(100, global.getCanvasBounds().right - defaultScrapSize, 130, 530 - defaultScrapSize);
         // test random coordinates
         // console.log(global.randomX, global.randomY);
 
         //get random scrap instance to draw
-        global.getRandomScrapInstance();
-        //test reandom scrap instance
-        console.log("Random Scrap Instance: ", global.randomScrapInstance);
+        global.getRandomScrapID();
+        //test random scrap instance
+        console.log("Random Scrap ID: ", global.randomScrapID);
 
-        global.scraps.push(new Scrap(global.randomX - defaultScrapSize, global.randomY - defaultScrapSize, defaultScrapSize, defaultScrapSize, `./img/scraps/placeholder${global.randomScrapInstance}.png`, global.randomScrapInstance));
+        global.scraps.push(new Scrap(global.randomX, global.randomY, defaultScrapSize, defaultScrapSize, `./img/scraps/placeholder${global.randomScrapID}.png`, global.randomScrapID));
     }
 
     // draw display scraps into inventory
     for (let i = 0; i < 5; i++) {
-        let scrapInstance = global.recipeScraps[i];
+        let scrapInstance = global.recipeScrapIDs[i];
         global.displayScraps.push(new DisplayScrap(recipeBoxX + margin + 45 * i, 15, displayScrapSize, displayScrapSize, `./img/scraps/placeholder${scrapInstance}.png`, scrapInstance))
     }
 
     console.log(global.scraps);
     console.log(global.displayScraps);
-    console.log("Scrap IDs: ", global.displayScraps[0].id, global.displayScraps[1].id)
     console.log(global.allGameObjects);
     // console.log(global.inventory);
-    console.log(global.SpaceShipVicinity);
+    console.log(global.spaceShipVicinity);
 
-    global.checkScraps();
+    
 
 }
 
