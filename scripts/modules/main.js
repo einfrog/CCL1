@@ -61,13 +61,14 @@ function setupGame() {
         //provide restriction parameters so scraps don't spawn under ui recipeBox, healthbar or inventory
         global.getRandomCoordinates(100, global.getCanvasBounds().right - 100, 100, global.getCanvasBounds().bottom - 100);
         // test random coordinates
-        console.log(global.randomX, global.randomY);
+        // console.log(global.randomX, global.randomY);
 
         //get random scrap instance to draw
         global.getRandomScrapInstance();
+        //test reandom scrap instance
         console.log("Random Scrap Instance: ", global.randomScrapInstance);
 
-        global.scraps.push(new Scrap(global.randomX - defaultScrapSize, global.randomY - defaultScrapSize, defaultScrapSize, defaultScrapSize, `./img/scraps/placeholder${global.randomScrapInstance}.png`));
+        global.scraps.push(new Scrap(global.randomX - defaultScrapSize, global.randomY - defaultScrapSize, defaultScrapSize, defaultScrapSize, `./img/scraps/placeholder${global.randomScrapInstance}.png`, global.randomScrapInstance));
     }
 
     // draw display scraps into inventory
