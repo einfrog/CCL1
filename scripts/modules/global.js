@@ -15,6 +15,9 @@ global.randomX = 0;
 global.randomY = 0;
 global.spaceship = {};
 global.inventoryScrap = 0;
+global.recipeScraps = [];
+global.randomScrapInstance = 0;
+global.installedScraps = [];
 
 global.getCanvasBounds = function () {
     let bounds = {
@@ -60,8 +63,17 @@ global.getRandomCoordinates = function(minX, maxX, minY, maxY) {
     this.randomY = Math.random() * maxY + minY;
 }
 
+global.getRandomScrapInstance = function(){
+    this.randomScrapInstance = Math.floor(Math.random() * 5) + 1;
+}
+
 //function to be called when scrap is collected
-global.putScrapInInventory = function() {
+// global.putScrapInInventory = function() {
+// }
+
+global.getRecipe = function() {
+    this.recipeScraps = Array.from({ length: 5 }, () => Math.floor(Math.random() * 5) + 1);
+   
 }
 
 export { global }

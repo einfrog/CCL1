@@ -6,6 +6,7 @@ import { RecipeBox } from "../gameObjects/recipeBox.js";
 import { Scrap } from "../gameObjects/scrap.js";
 import { DisplayScrap } from "../gameObjects/displayScrap.js";
 import { Spaceship } from "../gameObjects/spaceship.js";
+import { SpaceShipVicinity } from "../gameObjects/spaceShipVicinity.js";
 
 
 function gameLoop(totalRunningTime) {
@@ -32,12 +33,13 @@ function gameLoop(totalRunningTime) {
 }
 
 function setupGame() {
-    //get random coordinates for the scraps
-    //provide restriction parameters so scraps don't spawn under ui recipeBox, healthbar or inventory
-    global.getRandomCoordinates(100, global.getCanvasBounds().right - 100, 100, global.getCanvasBounds().bottom - 100);
-    // test random coordinates
-    console.log(global.randomX, global.randomY);
-    
+
+
+    global.getRecipe();
+    console.log("Recipe Scraps: ", global.recipeScraps);
+
+
+
     //set variables to make debugging easier
     const recipeBoxX = global.canvas.width - 250;
     const defaultScrapSize = 30;
@@ -49,20 +51,38 @@ function setupGame() {
     global.inventory = new Inventory(global.canvas.width / 2 - 180 / 2, 600 - 60 - margin, "./img/inventoryPlaceholder.png");
     global.healthbar = new Healthbar(margin, margin, "./img/healthbarPlaceholder.png");
     global.recipeBox = new RecipeBox(recipeBoxX, margin, "./img/recipeBoxPlaceholder.png");
-    global.spaceship = new Spaceship(global.canvas.width / 2 - 120 / 2, margin, 120, 120, "./img/spaceshipPlaceholder.png")
+    global.spaceship = new Spaceship(global.canvas.width / 2 - 120 / 2, margin, 120, 120, "./img/spaceshipPlaceholder.png");
+    global.SpaceShipVicinity = new SpaceShipVicinity;
+
 
     //draw the scraps on random positions on the map
-    global.scraps.push(new Scrap(global.randomX - defaultScrapSize, global.randomY - defaultScrapSize, defaultScrapSize, defaultScrapSize, "./img/scraps/placeholder1.png"));
+    for (let i = 0; i < 10; i++) {
+        //get random coordinates for the scraps
+        //provide restriction parameters so scraps don't spawn under ui recipeBox, healthbar or inventory
+        global.getRandomCoordinates(100, global.getCanvasBounds().right - 100, 100, global.getCanvasBounds().bottom - 100);
+        // test random coordinates
+        console.log(global.randomX, global.randomY);
+
+        //get random scrap instance to draw
+        global.getRandomScrapInstance();
+        console.log("Random Scrap Instance: ", global.randomScrapInstance);
+
+        global.scraps.push(new Scrap(global.randomX - defaultScrapSize, global.randomY - defaultScrapSize, defaultScrapSize, defaultScrapSize, `./img/scraps/placeholder${global.randomScrapInstance}.png`));
+    }
+
     // draw display scraps into inventory
     for (let i = 0; i < 5; i++) {
-        global.displayScraps.push(new DisplayScrap(recipeBoxX + margin + 45 * i, 15, displayScrapSize, displayScrapSize, `./img/scraps/placeholder${i + 1}.png`, i + 1))
+        let scrapInstance = global.recipeScraps[i];
+        global.displayScraps.push(new DisplayScrap(recipeBoxX + margin + 45 * i, 15, displayScrapSize, displayScrapSize, `./img/scraps/placeholder${scrapInstance}.png`, scrapInstance))
     }
-    
+
     console.log(global.scraps);
     console.log(global.displayScraps);
+    console.log("Scrap IDs: ", global.displayScraps[0].id, global.displayScraps[1].id)
     console.log(global.allGameObjects);
     // console.log(global.inventory);
-    
+    console.log(global.SpaceShipVicinity);
+
 }
 
 setupGame();

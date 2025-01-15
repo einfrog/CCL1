@@ -8,6 +8,7 @@ class DisplayScrap extends BaseGameObject {
 
     constructor(x, y, width, height, src, id) {
         super(x, y, width, height);
+        this.id = id;
         this.loadImages([src]);
     }
 

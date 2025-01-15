@@ -34,6 +34,22 @@ class RoryPlayer extends BaseGameObject {
         }
     }
 
+    reactToCollision = function(collidingObject) {
+        switch (collidingObject.name) {
+            case "Spaceship":
+                console.log("Rory collided with the Spaceship");
+                this.xVelocity = 0;
+                this.yVelocity = 0;
+                this.x = this.previousX;
+                this.y = this.previousY;
+                break;
+            case "SpaceshipVicinity":
+                this.nearSpaceship = true;
+                console.log("Rory is near the Spaceship");
+                break; 
+        }
+    }
+
     constructor(x, y, width, height) {
         super(x, y, width, height);
         //this.loadImages(["./images/apple.png"]);
