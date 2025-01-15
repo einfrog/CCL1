@@ -50,13 +50,13 @@ function stop() {
 
 //function to either install scraps or drop them   
 function manageInventory(event) {
-    if (global.inventoryScrap !== 0) {
+    if (global.inventoryScrap !== null) {
         switch (event.key) {
             case "i":
                 console.log("installing scrap");
                 global.installedScraps.push(global.inventoryScrap);
                 console.log("Installed Scraps: ", global.installedScraps);
-                global.inventoryScrap = 0;
+                global.inventoryScrap = null;
                 console.log("Inventory Scrap: ", global.inventoryScrap);
 
                 if (global.installedScraps.length < 4) {

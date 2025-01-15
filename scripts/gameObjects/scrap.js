@@ -7,7 +7,7 @@ class Scrap extends BaseGameObject {
 
     //stop collision detection with "collected" scrap and draw it inside of the inventory
     reactToCollision = function(collidingObject)  {
-        if (collidingObject.name == "RoryPlayer" && global.inventoryScrap == 0 && global.installedScraps.length < 5) {
+        if (collidingObject.name == "RoryPlayer" && global.inventoryScrap == null && global.installedScraps.length < 5) {
             // this.isDrawn = false;
             this.active = false;
             this.x = 310 + 10 + 50+10+50+10;
