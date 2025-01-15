@@ -76,4 +76,10 @@ global.getRecipe = function() {
    
 }
 
+global.checkScraps = function() {
+    if (this.recipeScraps == this.installedScraps) {
+        console.log("Spaceship completely");
+    }
+}
+
 export { global }

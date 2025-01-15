@@ -65,13 +65,17 @@ function manageInventory(event) {
                         global.installedScraps[i].y = 10 + 10;
                     }
                 } else {
-                    console.log("The array is >= 4");
                     for (let i = 3; i < global.installedScraps.length; i++) {
                         console.log(global.installedScraps[i]);
                         global.installedScraps[i].x = (global.canvas.width / 2 - 120 / 2 + 10 + 20 + (35 * (i - 3)));
                         global.installedScraps[i].y = 10 + 70;
                     }
                 }
+                break;
+            case "u":
+                //DOESNT WORK
+                // console.log("trying to drop scrap");
+                // global.inventoryScrap.x += 10;
         }
 
 

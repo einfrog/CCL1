@@ -84,6 +84,8 @@ function setupGame() {
     // console.log(global.inventory);
     console.log(global.SpaceShipVicinity);
 
+    global.checkScraps();
+
 }
 
 setupGame();
