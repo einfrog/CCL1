@@ -30,14 +30,28 @@ new isDrawn attribute to for scrap collision reaction\
 implement changing sprites for Rory (dummy sprites)\
 add background image\
 \
-DOING NEXT:\
+\
+\
+JAN 15th\
+DONE TODAY:\
 border collision for spaceship\
-draw 10 scraps on canvas (with distance in between)\
 generate random recipe array\
+draw recipe in recipeBox\
+draw 10 scraps on canvas\
+implement that only one scrap can be picked up at a time\
+new Class: SpaceShipVicinity for detecting when player is close to the Spaceship (to drop of scraps)\
+\
+\
+DOING NEXT:\
+do function for dropping of scrap near spaceship (with if statement)\
 dropping off scraps at the spaceship (create array to push "installed" items into, check if array is identical with array from recipe\
+prevent scraps from spawning in the area of healtbar, recipebox, spaceship and inventory\
 ensure all necessary scraps are generated on maps\
 \
 TO DO:\
+put distances between the generated scraps\
+NEW: no weapon/tool in inventory, implement just one empty inventory slot\
+key has to be pressed to pick up item, item can be dropped, input items in right order (like recipe)\
 adjust collision detection (only for player)\
 inventory graphic;\
 DOM manipulation for recipies\
