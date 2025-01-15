@@ -40,11 +40,17 @@ draw recipe in recipeBox\
 draw 10 scraps on canvas\
 implement that only one scrap can be picked up at a time\
 new Class: SpaceShipVicinity for detecting when player is close to the Spaceship (to drop of scraps)\
+installing scraps (array InstalledScraps)\
+display installed Scraps in spaceship\
 \
 \
 DOING NEXT:\
-do function for dropping of scrap near spaceship (with if statement)\
-dropping off scraps at the spaceship (create array to push "installed" items into, check if array is identical with array from recipe\
+drop scraps back down\
+only pick up scraps when key is pressed\
+extract scraps from spaceship if they're wrong\
+check installe scraps with recipe\
+do function for only dropping of scrap near spaceship (with if statement)\
+check if array is identical with array from recipe\
 prevent scraps from spawning in the area of healtbar, recipebox, spaceship and inventory\
 ensure all necessary scraps are generated on maps\
 \
