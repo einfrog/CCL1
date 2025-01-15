@@ -1,6 +1,9 @@
 import { global } from "./global.js";
 
+let lastPressedKey;
+
 function move(event) {
+    lastPressedKey = event.key;
 
     //movement for player, for WASD
     switch (event.key) {
@@ -41,11 +44,12 @@ function move(event) {
     }
 }
 
-function stop() {
-
-    //stop
-    global.playerObject.xVelocity = 0;
-    global.playerObject.yVelocity = 0;
+function stop(event) {
+    if (event.key === lastPressedKey) {
+        //stop
+        global.playerObject.xVelocity = 0;
+        global.playerObject.yVelocity = 0;
+    }
 }
 
 //function to either install scraps or drop them   
