@@ -42,28 +42,25 @@ implement that only one scrap can be picked up at a time\
 new Class: SpaceShipVicinity for detecting when player is close to the Spaceship (to drop of scraps)\
 installing scraps (array InstalledScraps)\
 display installed Scraps in spaceship\
+drop scraps back down\
+only pick up scraps when key is pressed\
+prevent scraps from spawning in the area of healtbar, recipebox, spaceship and inventory\
+ensure all necessary scraps are generated on maps\
+check installed scraps with recipe\
+fix stop() (jaggy movement);\
 \
 \
 DOING NEXT:\
-drop scraps back down\
-only pick up scraps when key is pressed\
 extract scraps from spaceship if they're wrong\
-check installe scraps with recipe\
 do function for only dropping of scrap near spaceship (with if statement)\
-check if array is identical with array from recipe\
-prevent scraps from spawning in the area of healtbar, recipebox, spaceship and inventory\
-ensure all necessary scraps are generated on maps\
 \
 TO DO:\
 put distances between the generated scraps\
 NEW: no weapon/tool in inventory, implement just one empty inventory slot\
-key has to be pressed to pick up item, item can be dropped, input items in right order (like recipe)\
 adjust collision detection (only for player)\
 inventory graphic;\
-DOM manipulation for recipies\
 background graphic;\
 inventory and scrap objects (canvas);\
-fix stop (jaggy movement);\
 rory: sprite animation;\
 scraps: object, dummy sprite (could just say 1-5), math;\
 recipes: object, css/html (lay over game container), math;\
