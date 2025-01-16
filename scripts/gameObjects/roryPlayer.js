@@ -45,8 +45,7 @@ class RoryPlayer extends BaseGameObject {
                 this.y = this.previousY;
                 break;
             case "SpaceshipVicinity":
-                this.nearSpaceship = true;
-                console.log("Rory is near the Spaceship");
+                // console.log("Rory is near the Spaceship");
                 break; 
         }
     }

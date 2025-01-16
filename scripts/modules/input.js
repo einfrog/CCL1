@@ -68,7 +68,26 @@ function manageInventory(event) {
                 global.playerObject.collidingScrap = null;
             }
             break;
-            //install scrap
+
+        //drop scrap
+        case "k":
+            if (global.inventoryScrap !== null) {
+                //drop scraps above or below character
+                console.log("trying to drop scrap");
+                //drop above if middle of character is below middle of canvas
+                if (global.playerObject.y + global.playerObject.height / 2 > global.canvas.height / 2) {
+                    global.inventoryScrap.y = global.playerObject.y - 100;
+                } else {
+                    //drop below if middle of character is above middle of canvas
+                    global.inventoryScrap.y = global.playerObject.y + global.playerObject.height + 100;
+                }
+                global.inventoryScrap.x = global.playerObject.x;
+                global.inventoryScrap.active = true;
+                console.log(global.inventoryScrap);
+                global.inventoryScrap = null;
+            }
+            break;
+        //install scrap
         case "l":
             if (global.inventoryScrap !== null) {
                 console.log("installing scrap");
@@ -92,22 +111,28 @@ function manageInventory(event) {
                 global.checkScraps();
             }
             break;
-        //drop scrap
-        case "k":
-            if (global.inventoryScrap !== null) {
-                //drop scraps above or below character
-                console.log("trying to drop scrap");
+        //extract scrap from spaceship (if wrongfully installed)
+        case "i":
+            if (global.installedScraps.length > 0) {
+                console.log("can extract scrap");
+                // console.log("installed scraps length: ", global.installedScraps.length);
+                // remove last index and store the removed item
+                let removedScrap = global.installedScraps.pop();
+                console.log("installed scraps: ", global.installedScraps);
+                console.log("removed scrap: ", removedScrap);
+                
+                //reset the coordinates of the extracted scrap
                 //drop above if middle of character is below middle of canvas
-                if(global.playerObject.y + global.playerObject.height / 2 > global.canvas.height / 2) {
-                    global.inventoryScrap.y = global.playerObject.y - 100;   
+                if (global.playerObject.y + global.playerObject.height / 2 > global.canvas.height / 2) {
+                    removedScrap.y = global.playerObject.y - 100;
                 } else {
                     //drop below if middle of character is above middle of canvas
-                    global.inventoryScrap.y = global.playerObject.y + global.playerObject.height + 100;
+                    removedScrap.y = global.playerObject.y + global.playerObject.height + 100;
                 }
-                global.inventoryScrap.x = global.playerObject.x;
-                global.inventoryScrap.active = true;
-                console.log(global.inventoryScrap);
-                global.inventoryScrap = null;
+                removedScrap.active = true;
+                removedScrap.x = global.playerObject.x;
+            } else {
+                console.log("no scrap to extract");
             }
             break;
 

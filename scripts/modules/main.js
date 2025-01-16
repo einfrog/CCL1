@@ -17,7 +17,6 @@ function gameLoop(totalRunningTime) {
 
     // loop in the game loop for game objects;
     for (var i = 0; i < global.allGameObjects.length; i++) {
-        // if (global.allGameObjects[i].active == true) {
         global.allGameObjects[i].storePositionOfPreviousFrame();
         global.allGameObjects[i].update();
         global.checkCollisionWithAnyOther(global.allGameObjects[i]);
@@ -25,7 +24,6 @@ function gameLoop(totalRunningTime) {
             global.allGameObjects[i].draw();
         }
 
-        // }
     }
 
     // console.log(global.playerObject.x, global.playerObject.y)
@@ -47,7 +45,7 @@ function setupGame() {
     const margin = 10;
 
     //instantiate objects
-    global.playerObject = new RoryPlayer(100, 360, 50, 170);
+    global.playerObject = new RoryPlayer(100, 360, 35, 120);
     global.inventory = new Inventory(global.canvas.width / 2 - 180 / 2, 600 - 60 - margin, "./img/inventoryPlaceholder.png");
     global.healthbar = new Healthbar(margin, margin, "./img/healthbarPlaceholder.png");
     global.recipeBox = new RecipeBox(recipeBoxX, margin, "./img/recipeBoxPlaceholder.png");
