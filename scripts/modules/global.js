@@ -36,13 +36,13 @@ global.checkCollisionWithAnyOther = function (givenObject) {
         if (givenObject.active == true && otherObject.active == true) {
             let collisionHappened = this.detectBoxCollision(givenObject, otherObject);
             if (collisionHappened) {
-                givenObject.colliding = true;
+                givenObject.collidingObjects[otherObject.name] = true;
                 givenObject.reactToCollision(otherObject);
-                otherObject.colliding = true;
+                otherObject.collidingObjects[givenObject.name] = true;
                 otherObject.reactToCollision(givenObject);
             } else {
-                givenObject.colliding = false;
-                otherObject.colliding = false;
+                givenObject.collidingObjects[otherObject.name] = false;
+                otherObject.collidingObjects[givenObject.name] = false;
             }
         }
     }

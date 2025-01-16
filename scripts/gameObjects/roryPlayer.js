@@ -6,6 +6,7 @@ class RoryPlayer extends BaseGameObject {
     xVelocity = 0;
     yVelocity = 0;
     collidingScrap = null;
+    collidingSpaceship = null;
 
     // //bump in canvas border
     // stayInCanvas = function () {
@@ -33,6 +34,8 @@ class RoryPlayer extends BaseGameObject {
         if (this.xVelocity == 0) {
             global.playerObject.switchCurrentSprites(this.animationData.firstSpriteIndex, this.animationData.firstSpriteIndex);
         }
+
+        console.log(this.collidingObjects["SpaceshipVicinity"]);
     }
 
     reactToCollision = function(collidingObject) {
@@ -45,7 +48,8 @@ class RoryPlayer extends BaseGameObject {
                 this.y = this.previousY;
                 break;
             case "SpaceshipVicinity":
-                // console.log("Rory is near the Spaceship");
+                // this.nearSpaceship = true; 
+                console.log("Rory is near the Spaceship");
                 break; 
         }
     }

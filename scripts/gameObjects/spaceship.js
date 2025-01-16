@@ -4,6 +4,12 @@ import { global } from "../modules/global.js";
 class Spaceship extends BaseGameObject {
     name = "Spaceship";
 
+    reactToCollision = function(collidingObject) {
+        if (collidingObject.name == "RoryPlayer") {
+            collidingObject.collidingSpaceship = this;
+        } 
+    }
+
     constructor(x, y, width, height, src) {
         super(x, y, width, height);
         this.loadImages([src]);

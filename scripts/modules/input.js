@@ -89,7 +89,7 @@ function manageInventory(event) {
             break;
         //install scrap
         case "l":
-            if (global.inventoryScrap !== null) {
+            if (global.inventoryScrap !== null && global.playerObject.collidingObjects["SpaceshipVicinity"]) {
                 console.log("installing scrap");
                 global.installedScraps.push(global.inventoryScrap);
                 console.log("Installed Scraps: ", global.installedScraps);
@@ -113,7 +113,7 @@ function manageInventory(event) {
             break;
         //extract scrap from spaceship (if wrongfully installed)
         case "i":
-            if (global.installedScraps.length > 0) {
+            if (global.installedScraps.length > 0 && global.playerObject.collidingObjects["SpaceshipVicinity"]) {
                 console.log("can extract scrap");
                 // console.log("installed scraps length: ", global.installedScraps.length);
                 // remove last index and store the removed item

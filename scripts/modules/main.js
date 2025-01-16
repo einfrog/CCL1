@@ -26,6 +26,8 @@ function gameLoop(totalRunningTime) {
 
     }
 
+    // console.log(global.playerObject.nearSpaceship);
+
     // console.log(global.playerObject.x, global.playerObject.y)
     requestAnimationFrame(gameLoop); //keeps gameLoop running
 }
