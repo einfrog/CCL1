@@ -50,11 +50,17 @@ check installed scraps with recipe\
 fix stop() (jaggy movement);\
 \
 \
-DOING NEXT:\
+JAN 16th:\
 extract scraps from spaceship if they're wrong\
-do function for only dropping of scrap near spaceship (with if statement)\
+\
+\
+\
+DOING NEXT:\
+consider doing a matrix map instead of randomly spawning scraps (obstacles where the character has to go around)\
 \
 TO DO:\
+pause screen, where you can access the instructions, story and credits\
+do function for only dropping of scrap near spaceship (with if statement)\
 put distances between the generated scraps\
 NEW: no weapon/tool in inventory, implement just one empty inventory slot\
 adjust collision detection (only for player)\
