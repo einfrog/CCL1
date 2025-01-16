@@ -57,15 +57,15 @@ consider doing a matrix map instead of randomly spawning scraps (obstacles where
 try to figure out map\
 implement map and draw walls (obstacles)\
 rethink everything because labyrinth is not fun to play\
+implement: rory can only install scraps when near the spaceship\
 \
 \
 \
 DOING NEXT:\
-implement collision detection for walls and scraps\
+figure out enemies!\
 \
 TO DO:\
 pause screen, where you can access the instructions, story and credits\
-do function for only dropping of scrap near spaceship (with if statement)\
 put distances between the generated scraps\
 NEW: no weapon/tool in inventory, implement just one empty inventory slot\
 adjust collision detection (only for player)\
