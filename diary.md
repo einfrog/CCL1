@@ -50,11 +50,22 @@ check installed scraps with recipe\
 fix stop() (jaggy movement);\
 \
 \
-DOING NEXT:\
+JAN 16th:\
 extract scraps from spaceship if they're wrong\
-do function for only dropping of scrap near spaceship (with if statement)\
+relocate spaceship, recipebar, and inventory\
+consider doing a matrix map instead of randomly spawning scraps (obstacles where the character has to go around)\
+try to figure out map\
+implement map and draw walls (obstacles)\
+rethink everything because labyrinth is not fun to play\
+implement: rory can only install scraps when near the spaceship\
+\
+\
+\
+DOING NEXT:\
+figure out enemies!\
 \
 TO DO:\
+pause screen, where you can access the instructions, story and credits\
 put distances between the generated scraps\
 NEW: no weapon/tool in inventory, implement just one empty inventory slot\
 adjust collision detection (only for player)\
