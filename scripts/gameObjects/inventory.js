@@ -10,8 +10,8 @@ class Inventory extends BaseGameObject {
     //     global.ctx.drawImage(src, this.x, this.y, this.width, this.height);
     // }
 
-    constructor(x, y, src) {
-        super(x, y, 180, 60);
+    constructor(x, y, width, height, src) {
+        super(x, y, width, height)
         this.loadImages([src]);
 
     }

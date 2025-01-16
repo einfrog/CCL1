@@ -56,15 +56,16 @@ function stop(event) {
 function manageInventory(event) {
 
     switch (event.key) {
-        //pick up scrap
+        //pick up scrap and draw it into the inventory
         case "j":
             if (global.playerObject.collidingScrap !== null) {
                 global.inventoryScrap = global.playerObject.collidingScrap;
                 console.log("InventoryScrap: ", global.inventoryScrap);
-
+                // prevent collision detection
                 global.playerObject.collidingScrap.active = false;
-                global.playerObject.collidingScrap.x = 310 + 10 + 50 + 10 + 50 + 10;
-                global.playerObject.collidingScrap.y = 600 - 10 - 50;
+                //draw into inventory
+                global.playerObject.collidingScrap.x = global.canvas.width - 50;
+                global.playerObject.collidingScrap.y = 75;
                 global.playerObject.collidingScrap = null;
             }
             break;
@@ -96,15 +97,17 @@ function manageInventory(event) {
                 global.inventoryScrap = null;
                 console.log("Inventory Scrap: ", global.inventoryScrap);
 
+                //draw installed scrap into upper half of spaceship
                 if (global.installedScraps.length < 4) {
                     for (let i in global.installedScraps) {
-                        global.installedScraps[i].x = (global.canvas.width / 2 - 120 / 2 + 10 + (35 * i));
+                        global.installedScraps[i].x = (10 + (35 * i));
                         global.installedScraps[i].y = 10 + 10;
                     }
                 } else {
+                    //draw scrap into lower half of scpaceship
                     for (let i = 3; i < global.installedScraps.length; i++) {
                         console.log(global.installedScraps[i]);
-                        global.installedScraps[i].x = (global.canvas.width / 2 - 120 / 2 + 10 + 20 + (35 * (i - 3)));
+                        global.installedScraps[i].x = (30 + (35 * (i - 3)));
                         global.installedScraps[i].y = 10 + 70;
                     }
                 }

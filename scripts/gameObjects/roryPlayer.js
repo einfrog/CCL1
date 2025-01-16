@@ -44,8 +44,12 @@ class RoryPlayer extends BaseGameObject {
                 this.x = this.previousX;
                 this.y = this.previousY;
                 break;
-            case "SpaceshipVicinity":
-                // console.log("Rory is near the Spaceship");
+            case "Obstacle":
+                console.log("Rory collided with a wall");
+                this.xVelocity = 0;
+                this.yVelocity = 0;
+                this.x = this.previousX;
+                this.y = this.previousY;
                 break; 
         }
     }

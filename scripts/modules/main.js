@@ -7,6 +7,7 @@ import { Scrap } from "../gameObjects/scrap.js";
 import { DisplayScrap } from "../gameObjects/displayScrap.js";
 import { Spaceship } from "../gameObjects/spaceship.js";
 import { SpaceShipVicinity } from "../gameObjects/spaceShipVicinity.js";
+import { Obstacle } from "../gameObjects/obstacle.js";
 
 
 function gameLoop(totalRunningTime) {
@@ -32,11 +33,23 @@ function gameLoop(totalRunningTime) {
 
 function setupGame() {
 
+    let obstacle = new Obstacle(0, 0, 0, 0);
+    let map = obstacle.map;
+
+    for (let i = 0; i < map.length; i++) {
+        let innerArray = map[i];
+        for (let j = 0; j < innerArray.length; j++) {
+            if (innerArray[j] == 1) {
+                new Obstacle(j * 50, 150 +  i * 50, 50, 50);
+            }
+            else if (innerArray[j] == 0){
+
+            }
+        }
+    }
 
     global.getRecipe();
     console.log("Recipe Scraps: ", global.recipeScrapIDs);
-
-
 
     //set variables to make debugging easier
     const recipeBoxX = global.canvas.width - 250;
@@ -45,13 +58,19 @@ function setupGame() {
     const margin = 10;
 
     //instantiate objects
-    global.playerObject = new RoryPlayer(100, 360, 35, 120);
-    global.inventory = new Inventory(global.canvas.width / 2 - 180 / 2, 600 - 60 - margin, "./img/inventoryPlaceholder.png");
-    global.healthbar = new Healthbar(margin, margin, "./img/healthbarPlaceholder.png");
-    global.recipeBox = new RecipeBox(recipeBoxX, margin, "./img/recipeBoxPlaceholder.png");
-    global.spaceship = new Spaceship(global.canvas.width / 2 - 120 / 2, margin, 120, 120, "./img/spaceshipPlaceholder.png");
-    global.spaceShipVicinity = new SpaceShipVicinity;
+    global.playerObject = new RoryPlayer(60, 210, 35, 75);
+    global.spaceship = new Spaceship(0, 0, 120, 120, "./img/spaceshipPlaceholder.png");
+    global.recipeBox = new RecipeBox(recipeBoxX, 0,250, 60, "./img/recipeBoxPlaceholder.png");
+    global.inventory = new Inventory(global.canvas.width - 60, 60, 60, 60, "./img/inventoryPlaceholder.png");
+    // global.healthbar = new Inventory(0, 120, 800, 480, "./img/spaceshipPlaceholder.png");
+    // global.healthbar = new Healthbar(margin, margin, "./img/healthbarPlaceholder.png");
+    // global.spaceShipVicinity = new SpaceShipVicinity;
 
+    // draw display scraps into inventory
+    for (let i = 0; i < 5; i++) {
+        let scrapInstance = global.recipeScrapIDs[i];
+        global.displayScraps.push(new DisplayScrap(recipeBoxX + margin / 2 + 45 * i, margin / 2, displayScrapSize, displayScrapSize, `./img/scraps/placeholder${scrapInstance}.png`, scrapInstance))
+    }
 
     //draw the scraps from the recipe
     for (const i of global.recipeScrapIDs){
@@ -80,17 +99,12 @@ function setupGame() {
         global.scraps.push(new Scrap(global.randomX, global.randomY, defaultScrapSize, defaultScrapSize, `./img/scraps/placeholder${global.randomScrapID}.png`, global.randomScrapID));
     }
 
-    // draw display scraps into inventory
-    for (let i = 0; i < 5; i++) {
-        let scrapInstance = global.recipeScrapIDs[i];
-        global.displayScraps.push(new DisplayScrap(recipeBoxX + margin + 45 * i, 15, displayScrapSize, displayScrapSize, `./img/scraps/placeholder${scrapInstance}.png`, scrapInstance))
-    }
 
     console.log(global.scraps);
     console.log(global.displayScraps);
     console.log(global.allGameObjects);
     // console.log(global.inventory);
-    console.log(global.spaceShipVicinity);
+    // console.log(global.spaceShipVicinity);
 
     
 
