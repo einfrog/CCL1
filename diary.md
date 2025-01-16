@@ -52,11 +52,16 @@ fix stop() (jaggy movement);\
 \
 JAN 16th:\
 extract scraps from spaceship if they're wrong\
+relocate spaceship, recipebar, and inventory\
+consider doing a matrix map instead of randomly spawning scraps (obstacles where the character has to go around)\
+try to figure out map\
+implement map and draw walls (obstacles)\
+rethink everything because labyrinth is not fun to play\
 \
 \
 \
 DOING NEXT:\
-consider doing a matrix map instead of randomly spawning scraps (obstacles where the character has to go around)\
+implement collision detection for walls and scraps\
 \
 TO DO:\
 pause screen, where you can access the instructions, story and credits\
