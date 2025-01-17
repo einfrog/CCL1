@@ -61,21 +61,25 @@ implement: rory can only install scraps when near the spaceship\
 \
 \
 \
+JAN 17th:\
+\
+\
 DOING NEXT:\
+adjust interface (relocate inventory, recipebar and spaceship), try carrying the inventory scrap with the player\
 figure out enemies!\
 \
 TO DO:\
 pause screen, where you can access the instructions, story and credits\
+scraps sprites\
+background graphic;\
+rory: sprite animation;\
+spaceship construction: sprite (5 different sprites that change with every correctly installed scrap)\
+creatures: dummy sprite, math;\
+\
+\
+OPTIONAL:\
 put distances between the generated scraps\
-NEW: no weapon/tool in inventory, implement just one empty inventory slot\
 adjust collision detection (only for player)\
 inventory graphic;\
-background graphic;\
-inventory and scrap objects (canvas);\
-rory: sprite animation;\
-scraps: object, dummy sprite (could just say 1-5), math;\
-recipes: object, css/html (lay over game container), math;\
-spaceship WIP: object and border detection, collision, vicinity detector;\
-creatures: dummy sprite, math;\
-COMPLEXITY: crafting interface, put scrap in right place;\
+
 
