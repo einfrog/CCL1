@@ -63,9 +63,12 @@ function manageInventory(event) {
                 console.log("InventoryScrap: ", global.inventoryScrap);
 
                 global.playerObject.collidingScrap.active = false;
-                global.playerObject.collidingScrap.x = 310 + 10 + 50 + 10 + 50 + 10;
-                global.playerObject.collidingScrap.y = 600 - 10 - 50;
+                //player is no longer colliding with the scrap (and can't pick it up)
                 global.playerObject.collidingScrap = null;
+                
+                //put in inventory space
+                // global.playerObject.collidingScrap.x = 310 + 10 + 50 + 10 + 50 + 10;
+                // global.playerObject.collidingScrap.y = 600 - 10 - 50;
             }
             break;
 
@@ -73,7 +76,7 @@ function manageInventory(event) {
         case "k":
             if (global.inventoryScrap !== null) {
                 //drop scraps above or below character
-                console.log("trying to drop scrap");
+                console.log("dropping scrap");
                 //drop above if middle of character is below middle of canvas
                 if (global.playerObject.y + global.playerObject.height / 2 > global.canvas.height / 2) {
                     global.inventoryScrap.y = global.playerObject.y - 100;
@@ -89,6 +92,7 @@ function manageInventory(event) {
             break;
         //install scrap
         case "l":
+            // check if the inventory slot is empty and if the colliding object is spaceship vicinity
             if (global.inventoryScrap !== null && global.playerObject.collidingObjects["SpaceshipVicinity"]) {
                 console.log("installing scrap");
                 global.installedScraps.push(global.inventoryScrap);
@@ -113,6 +117,7 @@ function manageInventory(event) {
             break;
         //extract scrap from spaceship (if wrongfully installed)
         case "i":
+            // check if there is a scrap to extract and if the colliding object is spaceship vicinity
             if (global.installedScraps.length > 0 && global.playerObject.collidingObjects["SpaceshipVicinity"]) {
                 console.log("can extract scrap");
                 // console.log("installed scraps length: ", global.installedScraps.length);

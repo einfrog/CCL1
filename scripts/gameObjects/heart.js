@@ -1,10 +1,11 @@
 import { BaseGameObject } from "./baseGameObject.js";
 import { global } from "../modules/global.js";
 
-class Spaceship extends BaseGameObject {
-    name = "Spaceship";
-
-
+class Heart extends BaseGameObject {
+    name = "Heart";
+    active = false;
+    numberOfHearts = 3;
+    
     constructor(x, y, width, height, src) {
         super(x, y, width, height);
         this.loadImages([src]);
@@ -12,4 +13,4 @@ class Spaceship extends BaseGameObject {
 
 }
 
-export { Spaceship };
+export { Heart };

@@ -18,6 +18,9 @@ global.inventoryScrap = null;
 global.recipeScrapIDs = [];
 global.randomScrapID = 0;
 global.installedScraps = [];
+global.enemy = {};
+global.gameOver = false;
+global.hearts = [];
 
 global.getCanvasBounds = function () {
     let bounds = {
@@ -36,11 +39,13 @@ global.checkCollisionWithAnyOther = function (givenObject) {
         if (givenObject.active == true && otherObject.active == true) {
             let collisionHappened = this.detectBoxCollision(givenObject, otherObject);
             if (collisionHappened) {
+                // if something is colliding with something else, pass what is being collided with (set to true)
                 givenObject.collidingObjects[otherObject.name] = true;
                 givenObject.reactToCollision(otherObject);
                 otherObject.collidingObjects[givenObject.name] = true;
                 otherObject.reactToCollision(givenObject);
             } else {
+                // if something is not colliding with a specific other Object anymore, set to false (lets you know when something is NOT colliding with something anymore)
                 givenObject.collidingObjects[otherObject.name] = false;
                 otherObject.collidingObjects[givenObject.name] = false;
             }
@@ -94,6 +99,16 @@ global.checkScraps = function () {
 
     if (this.recipeScrapIDs.length == installedScrapIDs.length && this.recipeScrapIDs.every((value, index) => value === installedScrapIDs[index])) {
         console.log("Spaceship completed");
+    }
+}
+
+// ????
+global.endGame = function () {
+    for (let i = 0; i < this.allGameObjects.length; i++) {
+        console.log("YOU LOST!!!!!!");
+        this.allGameObjects[i].isDrawn = false;
+        this.allGameObjects[i].active = false;
+        this.gameOver = true;
     }
 }
 

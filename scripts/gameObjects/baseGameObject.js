@@ -11,6 +11,7 @@ class BaseGameObject {
     previousY = 0;
     width = 50;
     height = 50;
+    //store the object with which any given object is colliding with
     collidingObjects = {};
 
     // give the right values for the sprites from sprite sheet
