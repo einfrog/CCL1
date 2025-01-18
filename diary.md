@@ -62,11 +62,28 @@ implement: rory can only install scraps when near the spaceship\
 \
 \
 JAN 17th:\
+figure out enemies!\
+draw enemy with random movement\
+add health that decreases when rory collides with enemy\
+settimeout() for only decreasing health once when rory collides with an enemy (set boolean (f.e. can be damaged) to true after every second)\
+define endGame() function;\
+game ends when health reaches 0; allgameObjects stop being drawn when endGame() is executed\
+adjust interface (relocate inventory, recipebar and spaceship), carry inventory scrap with player\
+draw player health as hearts\
+\
+\
+JAN 18th:\
+getting started on: rory sprites, scrap graphics, heart graphics\
+scraps (1: screws; 2: metalplane; 3: cables; 4: gear; 5: tape)\
+implement scrap art into game; adjust recipeBox position and size\
 \
 \
 DOING NEXT:\
-adjust interface (relocate inventory, recipebar and spaceship), try carrying the inventory scrap with the player\
-figure out enemies!\
+draw obstacles on map to go around\
+prevent scraps from spawning on top of obstacles\
+add another enemy (story: scrapyard guard)\
+adjust sizes and speed\
+\
 \
 TO DO:\
 pause screen, where you can access the instructions, story and credits\
@@ -74,7 +91,7 @@ scraps sprites\
 background graphic;\
 rory: sprite animation;\
 spaceship construction: sprite (5 different sprites that change with every correctly installed scrap)\
-creatures: dummy sprite, math;\
+creatures: dummy sprite;\
 \
 \
 OPTIONAL:\
