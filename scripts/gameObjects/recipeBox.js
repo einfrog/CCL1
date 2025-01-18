@@ -13,7 +13,7 @@ class RecipeBox extends BaseGameObject {
     // }
 
     constructor(x, y, src) {
-        super(x, y, 250 - 10, 60);
+        super(x, y, 270, 60);
         this.loadImages([src]);
     }
 

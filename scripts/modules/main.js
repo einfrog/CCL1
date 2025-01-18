@@ -43,7 +43,7 @@ function setupGame() {
 
 
     //set variables to make debugging easier
-    const recipeBoxX = global.canvas.width - 250;
+    const recipeBoxX = global.canvas.width - 280;
     const defaultScrapSize = 30;
     const displayScrapSize = 50;
     const margin = 10;
@@ -70,7 +70,7 @@ function setupGame() {
         // console.log("recipe scraps: ", global.recipeScrapIDs);
         // console.log("i: ", i);
         global.getRandomCoordinates(defaultScrapSize, global.getCanvasBounds().right - defaultScrapSize, 130, global.getCanvasBounds().bottom - defaultScrapSize);
-        global.scraps.push(new Scrap(global.randomX, global.randomY, defaultScrapSize, defaultScrapSize, `./img/scraps/placeholder${i}.png`, i));
+        global.scraps.push(new Scrap(global.randomX, global.randomY, defaultScrapSize, defaultScrapSize, `./img/scraps/scrap${i}.png`, i));
         //check properties of drawn scraps
         // console.log("Scraps: ", global.scraps);
 
@@ -90,13 +90,13 @@ function setupGame() {
         //test random scrap instance
         // console.log("Random Scrap ID: ", global.randomScrapID);
 
-        global.scraps.push(new Scrap(global.randomX, global.randomY, defaultScrapSize, defaultScrapSize, `./img/scraps/placeholder${global.randomScrapID}.png`, global.randomScrapID));
+        global.scraps.push(new Scrap(global.randomX, global.randomY, defaultScrapSize, defaultScrapSize, `./img/scraps/scrap${global.randomScrapID}.png`, global.randomScrapID));
     }
 
     // draw display scraps into the recipe box
     for (let i = 0; i < 5; i++) {
         let scrapInstance = global.recipeScrapIDs[i];
-        global.displayScraps.push(new DisplayScrap(recipeBoxX + margin + 45 * i, 15, displayScrapSize, displayScrapSize, `./img/scraps/placeholder${scrapInstance}.png`, scrapInstance))
+        global.displayScraps.push(new DisplayScrap(recipeBoxX + margin + 50 * i, 15, displayScrapSize, displayScrapSize, `./img/scraps/scrap${scrapInstance}.png`, scrapInstance))
     }
 
     //check all drawn scraps
