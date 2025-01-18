@@ -3,7 +3,6 @@ import { global } from "./global.js";
 let lastPressedKey;
 
 function move(event) {
-    lastPressedKey = event.key;
 
     //movement for player, for WASD
     switch (event.key) {
@@ -15,6 +14,7 @@ function move(event) {
             global.playerObject.switchCurrentSprites(3, 3);
             global.playerObject.xVelocity = 200;
             global.playerObject.yVelocity = 0;
+            lastPressedKey = event.key;
             // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
             break;
         case "a":
@@ -25,6 +25,7 @@ function move(event) {
             global.playerObject.switchCurrentSprites(1, 1);
             global.playerObject.xVelocity = -200;
             global.playerObject.yVelocity = 0;
+            lastPressedKey = event.key;
             // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
             break;
         case "w":
@@ -32,6 +33,7 @@ function move(event) {
             global.playerObject.yVelocity = -200;
             //switch set of sprites to be used
             global.playerObject.switchCurrentSprites(2, 2);
+            lastPressedKey = event.key;
             // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
             break;
         case "s":
@@ -39,6 +41,7 @@ function move(event) {
             global.playerObject.yVelocity = 200;
             //switch set of sprites to be used
             global.playerObject.switchCurrentSprites(0, 0);
+            lastPressedKey = event.key;
             // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
             break;
     }
