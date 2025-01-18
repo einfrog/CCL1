@@ -74,7 +74,8 @@ draw player health as hearts\
 \
 JAN 18th:\
 getting started on: rory sprites, scrap graphics, heart graphics\
-scraps (1: screws; 2: metalplane; 3: cables; 4: gear; 5: tape)
+scraps (1: screws; 2: metalplane; 3: cables; 4: gear; 5: tape)\
+implement scrap art into game; adjust recipeBox position and size\
 \
 \
 DOING NEXT:\
