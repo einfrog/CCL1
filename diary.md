@@ -72,6 +72,11 @@ adjust interface (relocate inventory, recipebar and spaceship), carry inventory 
 draw player health as hearts\
 \
 \
+JAN 18th:\
+getting started on: rory sprites, scrap graphics, heart graphics\
+scraps (1: screws; 2: metalplane; 3: cables; 4: gear; 5: tape)
+\
+\
 DOING NEXT:\
 draw obstacles on map to go around\
 prevent scraps from spawning on top of obstacles\
