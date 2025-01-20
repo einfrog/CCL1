@@ -14,7 +14,6 @@ custom font (Chekra Petch);\
 \
 \
 \
-\
 JAN14th:\
 DONE TODAY: \
 dummy scraps\
@@ -50,7 +49,9 @@ check installed scraps with recipe\
 fix stop() (jaggy movement);\
 \
 \
+\
 JAN 16th:\
+DONE TODAY:\
 extract scraps from spaceship if they're wrong\
 relocate spaceship, recipebar, and inventory\
 consider doing a matrix map instead of randomly spawning scraps (obstacles where the character has to go around)\
@@ -62,6 +63,7 @@ implement: rory can only install scraps when near the spaceship\
 \
 \
 JAN 17th:\
+DONE TODAY:\
 figure out enemies!\
 draw enemy with random movement\
 add health that decreases when rory collides with enemy\
@@ -72,7 +74,9 @@ adjust interface (relocate inventory, recipebar and spaceship), carry inventory 
 draw player health as hearts\
 \
 \
+\
 JAN 18th:\
+DONE TODAY:\
 getting started on: rory sprites, scrap graphics, heart graphics\
 finish drawing the scraps (1: screws; 2: metalplane; 3: cables; 4: gear; 5: tape)\
 implement scrap art into game; adjust recipeBox position and size\
@@ -81,28 +85,33 @@ get started on the lineart for rory's sprites\
 \
 \
 JAN 19th:\
+DONE TODAY:\
 adjust canvas height/width and restructure canvas\
+fix min max values for random coordinates\
+fix border collision with canvas border for enemy\
 call endGameWin() function when spaceship is completed\
-second enemy\
+add another enemy (story: scrapyard guard)\
 start and end screen\
+fix gameloop when pressing try again on end screen (PUT WIN END FUNCTIONS IN GLOBAL)\
+fix startGame() bug where arrays would just be added to instead of being actually reset\
+rework css for start and retry button\
+change order of objects being drawn to ensure rory is on top of the scraps on the map but underneath the scraps on the recipe box\
+fix runtime; game deltatime does not continue being calculated when tabbed out of the window\
 \
 \
 \
 DOING NEXT:\
-fix gameloop when pressing try again on end screen (PUT WIN END FUNCTIONS IN GLOBAL)\
 start and end screen\
 draw rory sprites\
 draw obstacles on map to go around or more enemies, make map bigger and sprites smaller, to make game more interesting ("force"/encourage player to move around and collect the scraps)\
 prevent scraps from spawning on top of obstacles\
-add another enemy (story: scrapyard guard)\
 adjust sizes and speed\
 \
+\
 VERY IMPORTANT BEORE HANDING IN:\
-background on body\
-fix runtime\
+background on body of html site\
 check parameters and values for constructors in main\
-fix min max values for random coordinates\
-fix border collision with canvas border for enemy\
+\
 \
 TO DO:\
 pause screen, where you can access the instructions, story and credits\
