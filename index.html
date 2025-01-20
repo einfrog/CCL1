@@ -16,13 +16,15 @@
 <body>
     <h1>Cosmic Scatter</h1>
     <div id="gameContainer" width="1000" height="600">
+
         
-        <img src="./img/startscreen.png" alt="Start Screen" id="displayScreen">
-        <button id="playButton">Play</button>
-        
-        <!-- canvas -->
-        <canvas id="canvas" width="1000" height="600">
-        </canvas>
+        <div id="canvasContainer">
+            <img src="./img/startscreen.png" alt="Start Screen" id="displayScreen">
+            <!-- canvas -->
+            <canvas id="canvas" width="1000" height="600">
+            </canvas>
+            <button id="playButton">Play</button>
+        </div>
 
         <!-- upper parts of ui in one div to distribute them among width -->
         <!-- <div id="upperUI" width="800" height="600">
@@ -34,7 +36,7 @@
         <div id="lowerUI">
             <div id="inventory"><img src="./img/inventoryPlaceholder.png" alt=""></div>
         </div> -->
-        
+
         <!-- health bar -->
         <!-- <div id="healthDisplay">Health:</div> -->
     </div>

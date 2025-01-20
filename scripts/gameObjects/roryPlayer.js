@@ -37,7 +37,7 @@ class RoryPlayer extends BaseGameObject {
         }
 
         if (global.gameOver !== true){
-            console.log("health: ", global.playerObject.health);
+            // console.log("health: ", global.playerObject.health);
 
         }
         // console.log(this.canTakeDamage)
@@ -66,7 +66,7 @@ class RoryPlayer extends BaseGameObject {
                     // end game when no health is left
                     if (global.playerObject.health <= 0) {
                         console.log("game ends")
-                        global.endGameLoss();
+                        global.endGame(false);
                     }
                 }
                 break;

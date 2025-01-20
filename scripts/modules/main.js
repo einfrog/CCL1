@@ -9,6 +9,7 @@ import { Spaceship } from "../gameObjects/spaceship.js";
 import { SpaceShipVicinity } from "../gameObjects/spaceShipVicinity.js";
 import { Enemy } from "../gameObjects/enemy.js";
 import { Heart } from "../gameObjects/heart.js";
+import { move, stop, manageInventory } from "./input.js";
 
 
 function gameLoop(totalRunningTime) {
@@ -35,7 +36,21 @@ function gameLoop(totalRunningTime) {
 }
 
 function setupGame() {
-
+    global.prevTotalRunningTime = 0;
+    global.allGameObjects = [];
+    global.playerObject = {};
+    global.inventory = {};
+    global.healthbar = {};
+    global.recipeBox = {};
+    global.displayScraps = [];
+    global.scraps = [];
+    global.spaceship = {};
+    global.inventoryScrap = null;
+    global.recipeScrapIDs = [];
+    global.installedScraps = [];
+    // global.enemy = {};
+    global.gameOver = false;
+    global.hearts = [];
 
     global.getRecipe();
     console.log("Recipe Scraps: ", global.recipeScrapIDs);
@@ -48,26 +63,8 @@ function setupGame() {
     const displayScrapSize = 50;
     const margin = 10;
 
-    //instantiate objects
-    global.playerObject = new RoryPlayer(100, 360, 35, 120);
-    // global.inventory = new Inventory(global.canvas.width / 2 - 180 / 2, 600 - 60 - margin, "./img/inventoryPlaceholder.png");
-    // global.healthbar = new Healthbar(margin, margin, "./img/healthbarPlaceholder.png");
-    global.recipeBox = new RecipeBox(recipeBoxX, margin, "./img/recipeBoxPlaceholder.png");
-    global.spaceship = new Spaceship(global.canvas.width / 2 - 120 / 2, margin, 120, 120, "./img/spaceshipPlaceholder.png");
-    global.spaceShipVicinity = new SpaceShipVicinity;
-
-    // global.enemy = new Enemy(400, 300, 80, 80);
-    new Enemy(400, 300, 80, 80);
-    new Enemy(800, 300, 80, 80);
-
-    //health display
-    for (let i = 0; i < global.playerObject.health; i++) {
-        global.hearts.push(new Heart(margin + 60 * i, 15, displayScrapSize, displayScrapSize, "./img/heartPlaceholder.png"));
-    }
-
-
     //draw the scraps from the recipe
-    for (const i of global.recipeScrapIDs){
+    for (const i of global.recipeScrapIDs) {
         //check if id is correct
         // console.log("recipe scraps: ", global.recipeScrapIDs);
         // console.log("i: ", i);
@@ -95,11 +92,36 @@ function setupGame() {
         global.scraps.push(new Scrap(global.randomX, global.randomY, defaultScrapSize, defaultScrapSize, `./img/scraps/scrap${global.randomScrapID}.png`, global.randomScrapID));
     }
 
+
+
+    //instantiate objects
+    global.playerObject = new RoryPlayer(100, 360, 35, 120);
+
+    // global.enemy = new Enemy(400, 300, 80, 80);
+    new Enemy(400, 300, 80, 80);
+    new Enemy(800, 300, 80, 80);
+
+    // global.inventory = new Inventory(global.canvas.width / 2 - 180 / 2, 600 - 60 - margin, "./img/inventoryPlaceholder.png");
+    // global.healthbar = new Healthbar(margin, margin, "./img/healthbarPlaceholder.png");
+    global.recipeBox = new RecipeBox(recipeBoxX, margin, "./img/recipeBoxPlaceholder.png");
+    global.spaceship = new Spaceship(global.canvas.width / 2 - 120 / 2, margin, 120, 120, "./img/spaceshipPlaceholder.png");
+    global.spaceShipVicinity = new SpaceShipVicinity;
+
+
+
     // draw display scraps into the recipe box
     for (let i = 0; i < 5; i++) {
         let scrapInstance = global.recipeScrapIDs[i];
         global.displayScraps.push(new DisplayScrap(recipeBoxX + margin + 50 * i, 15, displayScrapSize, displayScrapSize, `./img/scraps/scrap${scrapInstance}.png`, scrapInstance))
     }
+
+    //health display
+    for (let i = 0; i < global.playerObject.health; i++) {
+        global.hearts.push(new Heart(margin + 60 * i, 15, displayScrapSize, displayScrapSize, "./img/heartPlaceholder.png"));
+    }
+
+
+
 
     //check all drawn scraps
     console.log(global.scraps);
@@ -118,17 +140,25 @@ function startGame(button) {
     document.getElementById("displayScreen").style.display = "none";
     global.canvas.style.display = "block";
 
+    //add movement to pressing WASD
+    document.addEventListener("keypress", move);
+
+    document.addEventListener("keypress", manageInventory);
+
+    //stop if player lifts key
+    document.addEventListener("keyup", stop);
+
     setupGame();
     requestAnimationFrame(gameLoop);
 }
 
-document.getElementById("playButton").addEventListener("click", function(button){
+document.getElementById("playButton").addEventListener("click", function (button) {
     startGame(button.target);
 })
 
 
 document.addEventListener("visibilitychange", () => {
-    if(!document.hidden) {
+    if (!document.hidden) {
         global.prevTotalRunningTime = performance.now();
-    }
+    }
 })

@@ -1,3 +1,5 @@
+import { move, stop, manageInventory } from "./input.js";
+
 const global = {};
 
 global.canvas = document.querySelector("#canvas");
@@ -102,45 +104,28 @@ global.checkScraps = function () {
 
     if (this.recipeScrapIDs.length == installedScrapIDs.length && this.recipeScrapIDs.every((value, index) => value === installedScrapIDs[index])) {
         console.log("Spaceship completed");
-        this.endGameWin();
+        this.endGame(true);
     }
 }
 
-global.changeDisplay = function(targetSource) {
+global.changeDisplay = function (targetSource) {
     this.displayScreen.style.display = "block";
     this.displayScreen.src = targetSource;
 }
 
-//doesnt work
-// global.replayButton = function(button) {
-//     global.button.style.display = "block";
-// }
-
-// endGame functions
-global.endGameLoss = function () {
+global.endGame = function (won) {
     for (let i = 0; i < this.allGameObjects.length; i++) {
-        console.log("YOU LOST");
+        console.log(won ? "YOU WON" : "YOU LOST");
         this.allGameObjects[i].isDrawn = false;
         this.allGameObjects[i].active = false;
         global.ctx.clearRect(0, 0, global.canvas.width, global.canvas.height);
-        this.changeDisplay("./img/gameoverscreen.png")
+        document.removeEventListener("keypress", move);
+        document.removeEventListener("keypress", manageInventory);
+        document.removeEventListener("keyup", stop);
+        this.changeDisplay(won ? "./img/gamewonscreen.png" : "./img/gameoverscreen.png");
         this.button.style.display = "block";
         this.button.textContent = "Try again!";
-        
-        this.gameOver = true;
-    }
-}
-
-global.endGameWin = function () {
-    for (let i = 0; i < this.allGameObjects.length; i++) {
-        console.log("YOU WON");
-        this.allGameObjects[i].isDrawn = false;
-        this.allGameObjects[i].active = false;
-        global.ctx.clearRect(0, 0, global.canvas.width, global.canvas.height);
-        this.changeDisplay("./img/gamewonscreen.png");
-        this.button.style.display = "block";
-        this.button.textContent = "Try again!";
-        this.gameOver = true;
+        // this.gameOver = true;
     }
 }
 

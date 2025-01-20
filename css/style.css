@@ -31,32 +31,45 @@ h1 {
     background-position: center; */
 }
 
+#canvasContainer {
+    position: relative;
+    width: 1000px;
+    height: 600px;
+}
+
 #canvas {
-    aspect-ratio: auto;
+    /* aspect-ratio: auto; */
     background-image: url("../img/background.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    display: block;
 }
 
 #displayScreen {
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Match canvas width */
+    height: 100%; /* Match canvas height */
+    z-index: 0; /* Ensure it appears above the canvas */
 }
 
 #playButton {
     position: absolute;
-    right: 25%;
-    top: 55%;
+    left: 75%;
+    top: 60%;
+    transform: translate(-50%, -50%);
     border-radius: 4px;
     background-color: #804a86;
     border: none;
     color: white;
     padding: 15px 32px;
+    font-size: 16px;
     text-align: center;
     text-decoration: none;
-    display: flexbox;
-    align-self:self-end;
-    font-size: 16px;
+    cursor: pointer;
+    z-index: 2; 
 }
 
 #playButton:hover {

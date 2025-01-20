@@ -2,7 +2,7 @@ import { global } from "./global.js";
 
 let lastPressedKey;
 
-function move(event) {
+export function move(event) {
 
     //movement for player, for WASD
     switch (event.key) {
@@ -47,7 +47,7 @@ function move(event) {
     }
 }
 
-function stop(event) {
+export function stop(event) {
     if (event.key === lastPressedKey) {
         //stop
         global.playerObject.xVelocity = 0;
@@ -56,7 +56,7 @@ function stop(event) {
 }
 
 //function to either install scraps or drop them   
-function manageInventory(event) {
+export function manageInventory(event) {
 
     switch (event.key) {
         //pick up scrap
@@ -163,10 +163,13 @@ function manageInventory(event) {
 
 }
 
-//add movement to pressing WASD
-document.addEventListener("keypress", move);
 
-document.addEventListener("keypress", manageInventory);
 
-//stop if player lifts key
-document.addEventListener("keyup", stop);
+// //add movement to pressing WASD
+// document.addEventListener("keypress", move);
+
+// document.addEventListener("keypress", manageInventory);
+
+// //stop if player lifts key
+// document.addEventListener("keyup", stop);
+
