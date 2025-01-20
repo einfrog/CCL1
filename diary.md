@@ -74,16 +74,35 @@ draw player health as hearts\
 \
 JAN 18th:\
 getting started on: rory sprites, scrap graphics, heart graphics\
-scraps (1: screws; 2: metalplane; 3: cables; 4: gear; 5: tape)\
+finish drawing the scraps (1: screws; 2: metalplane; 3: cables; 4: gear; 5: tape)\
 implement scrap art into game; adjust recipeBox position and size\
+get started on the lineart for rory's sprites\
+\
+\
+\
+JAN 19th:\
+adjust canvas height/width and restructure canvas\
+call endGameWin() function when spaceship is completed\
+second enemy\
+start and end screen\
+\
 \
 \
 DOING NEXT:\
-draw obstacles on map to go around\
+fix gameloop when pressing try again on end screen (PUT WIN END FUNCTIONS IN GLOBAL)\
+start and end screen\
+draw rory sprites\
+draw obstacles on map to go around or more enemies, make map bigger and sprites smaller, to make game more interesting ("force"/encourage player to move around and collect the scraps)\
 prevent scraps from spawning on top of obstacles\
 add another enemy (story: scrapyard guard)\
 adjust sizes and speed\
 \
+VERY IMPORTANT BEORE HANDING IN:\
+background on body\
+fix runtime\
+check parameters and values for constructors in main\
+fix min max values for random coordinates\
+fix border collision with canvas border for enemy\
 \
 TO DO:\
 pause screen, where you can access the instructions, story and credits\
