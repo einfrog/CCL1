@@ -100,6 +100,11 @@ fix runtime; game deltatime does not continue being calculated when tabbed out o
 \
 \
 \
+Jan 20th:\
+PLAN: heart graphics, spaceship graphic, get started on rory and enemy sprites, start and end screen\
+\
+\
+\
 DOING NEXT:\
 start and end screen\
 draw rory sprites\
@@ -115,7 +120,6 @@ check parameters and values for constructors in main\
 \
 TO DO:\
 pause screen, where you can access the instructions, story and credits\
-scraps sprites\
 background graphic;\
 rory: sprite animation;\
 spaceship construction: sprite (5 different sprites that change with every correctly installed scrap)\
