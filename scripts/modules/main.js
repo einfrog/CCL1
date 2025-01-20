@@ -56,7 +56,9 @@ function setupGame() {
     global.spaceship = new Spaceship(global.canvas.width / 2 - 120 / 2, margin, 120, 120, "./img/spaceshipPlaceholder.png");
     global.spaceShipVicinity = new SpaceShipVicinity;
 
-    global.enemy = new Enemy(400, 300, 80, 80);
+    // global.enemy = new Enemy(400, 300, 80, 80);
+    new Enemy(400, 300, 80, 80);
+    new Enemy(800, 300, 80, 80);
 
     //health display
     for (let i = 0; i < global.playerObject.health; i++) {
@@ -111,5 +113,22 @@ function setupGame() {
 
 }
 
-setupGame();
-requestAnimationFrame(gameLoop);
+function startGame(button) {
+    button.style.display = "none";
+    document.getElementById("displayScreen").style.display = "none";
+    global.canvas.style.display = "block";
+
+    setupGame();
+    requestAnimationFrame(gameLoop);
+}
+
+document.getElementById("playButton").addEventListener("click", function(button){
+    startGame(button.target);
+})
+
+
+document.addEventListener("visibilitychange", () => {
+    if(!document.hidden) {
+        global.prevTotalRunningTime = performance.now();
+    }
+})

@@ -2,6 +2,8 @@ const global = {};
 
 global.canvas = document.querySelector("#canvas");
 global.ctx = canvas.getContext("2d");
+global.displayScreen = document.getElementById("displayScreen");
+global.button = document.getElementById("playButton");
 global.prevTotalRunningTime = 0;
 global.deltaTime = 0;
 global.allGameObjects = [];
@@ -18,9 +20,10 @@ global.inventoryScrap = null;
 global.recipeScrapIDs = [];
 global.randomScrapID = 0;
 global.installedScraps = [];
-global.enemy = {};
+// global.enemy = {};
 global.gameOver = false;
 global.hearts = [];
+
 
 global.getCanvasBounds = function () {
     let bounds = {
@@ -99,17 +102,48 @@ global.checkScraps = function () {
 
     if (this.recipeScrapIDs.length == installedScrapIDs.length && this.recipeScrapIDs.every((value, index) => value === installedScrapIDs[index])) {
         console.log("Spaceship completed");
+        this.endGameWin();
     }
 }
 
-// ????
-global.endGame = function () {
+global.changeDisplay = function(targetSource) {
+    this.displayScreen.style.display = "block";
+    this.displayScreen.src = targetSource;
+}
+
+//doesnt work
+// global.replayButton = function(button) {
+//     global.button.style.display = "block";
+// }
+
+// endGame functions
+global.endGameLoss = function () {
     for (let i = 0; i < this.allGameObjects.length; i++) {
-        console.log("YOU LOST!!!!!!");
+        console.log("YOU LOST");
         this.allGameObjects[i].isDrawn = false;
         this.allGameObjects[i].active = false;
+        global.ctx.clearRect(0, 0, global.canvas.width, global.canvas.height);
+        this.changeDisplay("./img/gameoverscreen.png")
+        this.button.style.display = "block";
+        this.button.textContent = "Try again!";
+        
         this.gameOver = true;
     }
 }
+
+global.endGameWin = function () {
+    for (let i = 0; i < this.allGameObjects.length; i++) {
+        console.log("YOU WON");
+        this.allGameObjects[i].isDrawn = false;
+        this.allGameObjects[i].active = false;
+        global.ctx.clearRect(0, 0, global.canvas.width, global.canvas.height);
+        this.changeDisplay("./img/gamewonscreen.png");
+        this.button.style.display = "block";
+        this.button.textContent = "Try again!";
+        this.gameOver = true;
+    }
+}
+
+
 
 export { global }

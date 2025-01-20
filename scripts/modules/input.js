@@ -103,11 +103,13 @@ function manageInventory(event) {
                 global.inventoryScrap = null;
                 console.log("Inventory Scrap: ", global.inventoryScrap);
 
+                //put in upper row in spaceship
                 if (global.installedScraps.length < 4) {
                     for (let i in global.installedScraps) {
                         global.installedScraps[i].x = (global.canvas.width / 2 - 120 / 2 + 10 + (35 * i));
                         global.installedScraps[i].y = 10 + 10;
                     }
+                    //put in lower row in spaceship
                 } else {
                     for (let i = 3; i < global.installedScraps.length; i++) {
                         console.log(global.installedScraps[i]);

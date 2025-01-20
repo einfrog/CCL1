@@ -66,7 +66,7 @@ class RoryPlayer extends BaseGameObject {
                     // end game when no health is left
                     if (global.playerObject.health <= 0) {
                         console.log("game ends")
-                        global.endGame();
+                        global.endGameLoss();
                     }
                 }
                 break;
