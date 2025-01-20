@@ -114,6 +114,7 @@ adjust sizes and speed\
 \
 \
 VERY IMPORTANT BEORE HANDING IN:\
+fix bugs with enemies: sometimes spawns on top of player and immediately subtracts one heart; sometimes repeatedly collides with spaceship and bugs out of map, never to be seen again\
 background on body of html site\
 check parameters and values for constructors in main\
 \
