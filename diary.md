@@ -101,7 +101,9 @@ fix runtime; game deltatime does not continue being calculated when tabbed out o
 \
 \
 Jan 20th:\
-PLAN: heart graphics, spaceship graphic, get started on rory and enemy sprites, start and end screen\
+redesign main charactert\
+draw heart pngs\
+PLAN: spaceship graphic, get started on rory and enemy sprites, start and end screen\
 \
 \
 \
