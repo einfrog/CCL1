@@ -117,7 +117,7 @@ function setupGame() {
 
     //health display
     for (let i = 0; i < global.playerObject.health; i++) {
-        global.hearts.push(new Heart(margin + 60 * i, 15, displayScrapSize, displayScrapSize, "./img/heartPlaceholder.png"));
+        global.hearts.push(new Heart(margin + 60 * i, 15, displayScrapSize, displayScrapSize, "./img/heart.png"));
     }
 
 
