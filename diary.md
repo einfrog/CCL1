@@ -100,6 +100,13 @@ fix runtime; game deltatime does not continue being calculated when tabbed out o
 \
 \
 \
+Jan 20th:\
+redesign main charactert\
+draw heart pngs\
+PLAN: spaceship graphic, get started on rory and enemy sprites, start and end screen\
+\
+\
+\
 DOING NEXT:\
 start and end screen\
 draw rory sprites\
@@ -109,13 +116,13 @@ adjust sizes and speed\
 \
 \
 VERY IMPORTANT BEORE HANDING IN:\
+fix bugs with enemies: sometimes spawns on top of player and immediately subtracts one heart; sometimes repeatedly collides with spaceship and bugs out of map, never to be seen again\
 background on body of html site\
 check parameters and values for constructors in main\
 \
 \
 TO DO:\
 pause screen, where you can access the instructions, story and credits\
-scraps sprites\
 background graphic;\
 rory: sprite animation;\
 spaceship construction: sprite (5 different sprites that change with every correctly installed scrap)\
