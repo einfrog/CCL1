@@ -11,7 +11,7 @@ export function move(event) {
             // if (global.playerObject.xVelocity == 0)
             //     global.playerObject.switchCurrentSprites(4, 4);
             //switch current sprites to be used
-            global.playerObject.switchCurrentSprites(3, 3);
+            global.playerObject.switchCurrentSprites(12, 15);
             global.playerObject.xVelocity = 200;
             global.playerObject.yVelocity = 0;
             lastPressedKey = event.key;
@@ -22,7 +22,7 @@ export function move(event) {
             // if (global.playerObject.xVelocity == 0)
             //     global.playerObject.switchCurrentSprites(9, 17);
             //switch current sprites to be used
-            global.playerObject.switchCurrentSprites(1, 1);
+            global.playerObject.switchCurrentSprites(16, 19);
             global.playerObject.xVelocity = -200;
             global.playerObject.yVelocity = 0;
             lastPressedKey = event.key;
@@ -32,15 +32,18 @@ export function move(event) {
             global.playerObject.xVelocity = 0;
             global.playerObject.yVelocity = -200;
             //switch set of sprites to be used
-            global.playerObject.switchCurrentSprites(2, 2);
+            global.playerObject.switchCurrentSprites(8, 10);
             lastPressedKey = event.key;
             // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
             break;
         case "s":
+            // IDLE
+            // if (global.playerObject.xVelocity == 0)
+            //     global.playerObject.switchCurrentSprites(1,1);
             global.playerObject.xVelocity = 0;
             global.playerObject.yVelocity = 200;
             //switch set of sprites to be used
-            global.playerObject.switchCurrentSprites(0, 0);
+            global.playerObject.switchCurrentSprites(4,6);
             lastPressedKey = event.key;
             // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
             break;

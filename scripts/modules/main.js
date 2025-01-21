@@ -95,7 +95,7 @@ function setupGame() {
 
 
     //instantiate objects
-    global.playerObject = new RoryPlayer(100, 360, 35, 120);
+    global.playerObject = new RoryPlayer(100, 360, 100, 115);
 
     // global.enemy = new Enemy(400, 300, 80, 80);
     new Enemy(400, 300, 80, 80);
