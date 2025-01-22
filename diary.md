@@ -84,7 +84,7 @@ get started on the lineart for rory's sprites\
 \
 \
 \
-JAN 19th:\
+JAN 20th:\
 DONE TODAY:\
 adjust canvas height/width and restructure canvas\
 fix min max values for random coordinates\
@@ -100,7 +100,8 @@ fix runtime; game deltatime does not continue being calculated when tabbed out o
 \
 \
 \
-Jan 20th:\
+Jan 21st:\
+DONE TODAY:\
 redesign main charactert\
 draw heart pngs\
 drawing rory test sprites\
@@ -108,16 +109,35 @@ insert rory's test sprites into game\
 \
 \
 \
+JAN 22nd:\
+DONE TODAY:\
+try fixing sprite animation\
+fixed sprite animation\
+log enemy bugs\
+draw enemy sprites\
+get started on screen art\
+spaceship art\
+fix sprites again\
+fix sprite issue with rory's sprites and input\
+overwork input in general\
+fix enemy's update function so it doesnt go out of bounds\
+overwork visibility change function\
+keep working on screen art\
+\
+\
+\
 DOING NEXT:\
 start and end screen\
-draw rory sprites\
+adjust sizes and speed\
+redo enemy sprite\
+color enemy sprites\
+correct and color rory sprites\
 draw obstacles on map to go around or more enemies, make map bigger and sprites smaller, to make game more interesting ("force"/encourage player to move around and collect the scraps)\
 prevent scraps from spawning on top of obstacles\
-adjust sizes and speed\
 \
 \
 VERY IMPORTANT BEORE HANDING IN:\
-fix bugs with enemies: sometimes spawns on top of player and immediately subtracts one heart; sometimes repeatedly collides with spaceship and bugs out of map, never to be seen again\
+fix bugs with enemies: sometimes spawns on top of player and immediately subtracts one heart\
 background on body of html site\
 check parameters and values for constructors in main\
 \
