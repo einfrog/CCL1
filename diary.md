@@ -119,40 +119,53 @@ get started on screen art\
 spaceship art\
 fix sprites again\
 fix sprite issue with rory's sprites and input\
-overwork input in general\
+overwork input.js in general\
 fix enemy's update function so it doesnt go out of bounds\
 overwork visibility change function\
 keep working on screen art\
+finish drawing screen art (start screen, game over and game won screen; slightly change details)\ 
+redo CSS and HTML\
+add screens i just finished\
+implement background music\
+redo enemy sprite\
+color enemy sprites\
+correct and continue rory's sprite and start coloring\
+polish hearts\
+draw instruction box\
+implement hearts and instruction box\
+\
+\
+\
+\
+JAN 23rd\
+PLANNED TODAY:\
+\
+FINISH COLORING RORY'S SPRITES!!!!\
+BACKGROUND!!!!\
+implement idle sprites\
+adjust sizes and speed\
+adjust collision detection for non-rectangle objects\
+add buttons for controls and story\
+draw and implement spaceship (construction) sprites\
+DONE TODAY:\
 \
 \
 \
 DOING NEXT:\
-start and end screen\
-adjust sizes and speed\
-redo enemy sprite\
-color enemy sprites\
-correct and color rory sprites\
-draw obstacles on map to go around or more enemies, make map bigger and sprites smaller, to make game more interesting ("force"/encourage player to move around and collect the scraps)\
-prevent scraps from spawning on top of obstacles\
+\
+\
+TO DO:\
+background graphic;\
+rory: sprite animation;\
+spaceship construction: sprite (5 different sprites that change with every correctly installed scrap)\
 \
 \
 VERY IMPORTANT BEORE HANDING IN:\
 fix bugs with enemies: sometimes spawns on top of player and immediately subtracts one heart\
-background on body of html site\
 check parameters and values for constructors in main\
 \
 \
-TO DO:\
-pause screen, where you can access the instructions, story and credits\
-background graphic;\
-rory: sprite animation;\
-spaceship construction: sprite (5 different sprites that change with every correctly installed scrap)\
-creatures: dummy sprite;\
-\
-\
 OPTIONAL:\
+draw obstacles on map to go around or more enemies, make map bigger and sprites smaller, to make game more interesting ("force"/encourage player to move around and collect the scraps)\
 put distances between the generated scraps\
 adjust collision detection (only for player)\
-inventory graphic;\
-
-
