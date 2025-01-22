@@ -130,8 +130,8 @@ class Enemy extends BaseGameObject {
 
     constructor(x, y, width, height) {
         super(x, y, width, height);
-        this.loadImagesFromSpritesheet("./img/enemyTest.png", 2, 1);
-        this.switchCurrentSprites(0, 1);
+        this.loadImagesFromSpritesheet("./img/enemySprite.png", 4, 1);
+        this.switchCurrentSprites(0, 3);
 
     }
 

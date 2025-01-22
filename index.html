@@ -14,32 +14,23 @@
 </head>
 
 <body>
-    <h1>Cosmic Scatter</h1>
-    <div id="gameContainer" width="1000" height="600">
-
-        
+    <!-- <h1>Cosmic Scatter</h1> -->
+    <div id="gameContainer">
         <div id="canvasContainer">
-            <img src="./img/startscreen.png" alt="Start Screen" id="displayScreen">
+            <img src="./img/startscreen.png" id="displayScreen" alt="Start Screen">
             <!-- canvas -->
-            <canvas id="canvas" width="1000" height="600">
+            <canvas id="canvas" width="1200" height="720">
             </canvas>
             <button id="playButton">Play</button>
         </div>
 
-        <!-- upper parts of ui in one div to distribute them among width -->
-        <!-- <div id="upperUI" width="800" height="600">
-            <div id="healthbar"><img src="./img/healthbarPlaceholder.png" alt="Healthbar" /></div>
-            <div id="recipeBox"><img src="./img/recipeBoxPlaceholder.png" alt=""></div>
-        </div> -->
-
-        <!-- lower parts of ui
-        <div id="lowerUI">
-            <div id="inventory"><img src="./img/inventoryPlaceholder.png" alt=""></div>
-        </div> -->
-
-        <!-- health bar -->
-        <!-- <div id="healthDisplay">Health:</div> -->
+        <div id="credits">Idea, Programming and Art by Johanna Mayr | Music by Erik Kahri</div>
     </div>
+    
+    <audio autoplay loop controls muted>
+        <source src="./assets/CosmicScatter_ErikKahri.mp3" type="audio/mpeg">
+        If you're reading this, your browser does not support audio elements.
+    </audio>
 
     <script type="module" src="./scripts/modules/global.js"></script>
     <script type="module" src="./scripts/modules/input.js"></script>

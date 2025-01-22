@@ -10,40 +10,37 @@
     font-style: normal;
 }
 
-div {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-h1 {
-    font-family: "Chakra Petch";
-    text-align: center;
-}
-
-#gameContainer {
+body {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh; /* full viewport height */
+    margin: 0; /* remove default margin */
+    background-color: #272525; /* background for viewport */
+}
+
+
+#gameContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    position: relative;
-    /* background-image: url("../img/background.png");
-    background-size:auto;
-    background-repeat: no-repeat;
-    background-position: center; */
 }
 
 #canvasContainer {
     position: relative;
-    width: 1000px;
-    height: 600px;
+    width: 1200px;
+    height: 720px;
+    margin-bottom: 20px;
 }
 
 #canvas {
-    /* aspect-ratio: auto; */
     background-image: url("../img/background.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     display: block;
+    border-radius: 8px;
 }
 
 #displayScreen {
@@ -53,15 +50,16 @@ h1 {
     width: 100%; /* Match canvas width */
     height: 100%; /* Match canvas height */
     z-index: 0; /* Ensure it appears above the canvas */
+    border-radius: 8px;
 }
 
 #playButton {
     position: absolute;
-    left: 75%;
-    top: 60%;
+    left: 72%;
+    top: 62%;
     transform: translate(-50%, -50%);
     border-radius: 4px;
-    background-color: #804a86;
+    background-color: #5a3973;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -73,25 +71,27 @@ h1 {
 }
 
 #playButton:hover {
-    background-color: #573a5a;
+    background-color: #502d6b;
     color: white;
 }
 
-/* #background {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 400;
-    width: 800px; 
-    height: 600px;
-    /* background-image: url("../img/background.png");
-    background-size: cover;
+#credits {
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 16px;
+    color: #d7d6d6;
+    background-color: rgba(25, 25, 25, 0.7);
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
 
-} */
-
-/* #upperUI {
-    display: flex;
-    align-items: flex-start;
-    justify-content:space-between;
-    
-} */
+audio {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    /* background-color: #5a3973;
+    border-radius: 8px;
+    padding: 5px; */
+    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); */
+}

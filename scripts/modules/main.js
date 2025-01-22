@@ -33,7 +33,7 @@ function gameLoop(totalRunningTime) {
 
     }
 
-    console.log("enemy1: ", global.enemy1);
+    // console.log("enemy1: ", global.enemy1);
     // console.log(global.playerObject.nearSpaceship);
     // console.log(global.playerObject.x, global.playerObject.y)
     requestAnimationFrame(gameLoop); //keeps gameLoop running
@@ -110,7 +110,7 @@ function setupGame() {
 
     // global.inventory = new Inventory(global.canvas.width / 2 - 180 / 2, 600 - 60 - margin, "./img/inventoryPlaceholder.png");
     // global.healthbar = new Healthbar(margin, margin, "./img/healthbarPlaceholder.png");
-    global.recipeBox = new RecipeBox(recipeBoxX, margin, "./img/recipeBoxPlaceholder.png");
+    global.recipeBox = new RecipeBox(recipeBoxX, margin, "./img/recipeBox.png");
     global.spaceShipVicinity = new SpaceShipVicinity;
 
 
