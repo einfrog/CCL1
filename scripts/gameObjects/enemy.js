@@ -6,6 +6,15 @@ class Enemy extends BaseGameObject {
     xVelocity = 0;
     yVelocity = -200;
 
+    animationData = {
+        "animationSprites": [],
+        "timePerSprite": 0.3,
+        "currentSpriteElapsedTime": 0,
+        "firstSpriteIndex": 0,
+        "lastSpriteIndex": 0,
+        "currentSpriteIndex": 0
+    };
+
     randomMovementData = {
         "timeToChangeDirection": 6,
         "currentDirectionElapsedTime": 0,
@@ -15,44 +24,70 @@ class Enemy extends BaseGameObject {
         "movementChangeOppositePossibility": 0.3
     };
 
-    update = function () {
+    // update = function () {
 
-        //store difference of position between one frame and the next
+    //     //store difference of position between one frame and the next
+    //     const dx = this.xVelocity * global.deltaTime;
+    //     const dy = this.yVelocity * global.deltaTime;
+
+    //     //border collision with canvas bounds (left and right)
+    //     if (this.x + this.width >= global.getCanvasBounds().right - 50) {
+    //         // Ensure it's inside the right boundary
+    //         this.x = global.getCanvasBounds().right - this.width - 50;
+    //         this.changeMovement();
+    //     } else if (this.x < global.getCanvasBounds().left + 50) {
+    //         // Ensure it's inside the left boundary
+    //         this.x = global.getCanvasBounds().left + 50;
+    //         this.changeMovement();
+    //     }
+
+    //     // border collision canvas bounds (top and bottom)
+    //     if (this.y + this.height >= global.getCanvasBounds().bottom) {
+    //         // Ensure it's inside the bottom boundary
+    //         this.y = global.getCanvasBounds().bottom - this.height;
+    //         this.changeMovement();
+    //     } else if (this.y < global.getCanvasBounds().top + 100) {
+    //         // Ensure it's inside the top boundary
+    //         this.y = global.getCanvasBounds().top + 100;
+    //         this.changeMovement();
+    //     }
+
+    //     this.randomMovementData.currentDirectionElapsedTime += global.deltaTime;
+
+    //     if (this.randomMovementData.currentDirectionElapsedTime >= this.randomMovementData.timeToChangeDirection) {
+    //         this.randomizeMovement();
+    //         this.randomMovementData.currentDirectionElapsedTime = 0;
+    //     }
+
+    //     this.x += this.xVelocity * global.deltaTime;
+    //     this.y += this.yVelocity * global.deltaTime;
+
+    // }
+
+    update = function () {
+        // Store difference of position between one frame and the next
         const dx = this.xVelocity * global.deltaTime;
         const dy = this.yVelocity * global.deltaTime;
-
-        //border collision with canvas bounds (left and right)
-        if (this.x + this.width >= global.getCanvasBounds().right - 50) {
-            // Ensure it's inside the right boundary
-            this.x = global.getCanvasBounds().right - this.width - 50;
-            this.changeMovement();
-        } else if (this.x < global.getCanvasBounds().left + 50) {
-            // Ensure it's inside the left boundary
-            this.x = global.getCanvasBounds().left + 50;
-            this.changeMovement();
-        }
-
-        // border collision canvas bounds (top and bottom)
-        if (this.y + this.height >= global.getCanvasBounds().bottom) {
-            // Ensure it's inside the bottom boundary
-            this.y = global.getCanvasBounds().bottom - this.height;
-            this.changeMovement();
-        } else if (this.y < global.getCanvasBounds().top + 100) {
-            // Ensure it's inside the top boundary
-            this.y = global.getCanvasBounds().top + 100;
+    
+        // Prevent movement outside canvas bounds (math.may returns largest argument)
+        this.x = Math.max(global.getCanvasBounds().left + 50, Math.min(this.x + dx, global.getCanvasBounds().right - this.width - 50));
+        this.y = Math.max(global.getCanvasBounds().top + 100, Math.min(this.y + dy, global.getCanvasBounds().bottom - this.height));
+    
+        // Check if the enemy needs to change direction due to boundaries
+        if (this.x === global.getCanvasBounds().right - this.width - 50 || this.x === global.getCanvasBounds().left + 50 ||
+            this.y === global.getCanvasBounds().bottom - this.height || this.y === global.getCanvasBounds().top + 100) {
             this.changeMovement();
         }
-
+    
+        // Update random movement timer
         this.randomMovementData.currentDirectionElapsedTime += global.deltaTime;
-
+    
         if (this.randomMovementData.currentDirectionElapsedTime >= this.randomMovementData.timeToChangeDirection) {
             this.randomizeMovement();
             this.randomMovementData.currentDirectionElapsedTime = 0;
         }
-
-        this.x += this.xVelocity * global.deltaTime;
-        this.y += this.yVelocity * global.deltaTime;
-    }
+    };
+    
 
     randomizeMovement = function () {
         const shouldChange = Math.random();
@@ -95,7 +130,9 @@ class Enemy extends BaseGameObject {
 
     constructor(x, y, width, height) {
         super(x, y, width, height);
-        this.loadImagesFromSpritesheet("./img/enemyPlaceholder.png", 1, 1);
+        this.loadImagesFromSpritesheet("./img/enemyTest.png", 2, 1);
+        this.switchCurrentSprites(0, 1);
+
     }
 
 }

@@ -32,7 +32,8 @@ class RoryPlayer extends BaseGameObject {
 
         this.x += dx;
         this.y += dy;
-        if (this.xVelocity == 0) {
+        //idle animation
+        if (this.xVelocity == 0 && this.yVelocity == 0) {
             global.playerObject.switchCurrentSprites(this.animationData.firstSpriteIndex, this.animationData.firstSpriteIndex);
         }
 
@@ -43,6 +44,7 @@ class RoryPlayer extends BaseGameObject {
         // console.log(this.canTakeDamage)
         // console.log(this.collidingObjects["SpaceshipVicinity"]);
         // console.log(this.receivedDamage);
+        // console.log(this.animationData.currentSpriteIndex)
     }
 
     reactToCollision = function (collidingObject) {

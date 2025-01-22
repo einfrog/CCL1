@@ -25,6 +25,8 @@ global.installedScraps = [];
 // global.enemy = {};
 global.gameOver = false;
 global.hearts = [];
+global.enemy1 = {};
+global.enemy2 = {};
 
 
 global.getCanvasBounds = function () {
@@ -104,7 +106,10 @@ global.checkScraps = function () {
 
     if (this.recipeScrapIDs.length == installedScrapIDs.length && this.recipeScrapIDs.every((value, index) => value === installedScrapIDs[index])) {
         console.log("Spaceship completed");
-        this.endGame(true);
+        // Call endGame after 1 second
+        setTimeout(() => {
+            this.endGame(true);
+        }, 250);
     }
 }
 

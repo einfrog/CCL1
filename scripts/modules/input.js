@@ -3,60 +3,118 @@ import { global } from "./global.js";
 let lastPressedKey;
 
 export function move(event) {
+    // Check if the current key is already being handled
+    if (event.key === lastPressedKey) {
+        return; // Exit if the same key is still pressed
+    }
 
-    //movement for player, for WASD
+    // Movement for player, for WASD
     switch (event.key) {
         case "d":
-            // IDLE SPRITE(?)
-            // if (global.playerObject.xVelocity == 0)
-            //     global.playerObject.switchCurrentSprites(4, 4);
-            //switch current sprites to be used
             global.playerObject.switchCurrentSprites(12, 15);
             global.playerObject.xVelocity = 200;
             global.playerObject.yVelocity = 0;
             lastPressedKey = event.key;
-            // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
             break;
         case "a":
-            // IDLE
-            // if (global.playerObject.xVelocity == 0)
-            //     global.playerObject.switchCurrentSprites(9, 17);
-            //switch current sprites to be used
             global.playerObject.switchCurrentSprites(16, 19);
             global.playerObject.xVelocity = -200;
             global.playerObject.yVelocity = 0;
             lastPressedKey = event.key;
-            // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
             break;
         case "w":
+            global.playerObject.switchCurrentSprites(8, 11);
             global.playerObject.xVelocity = 0;
             global.playerObject.yVelocity = -200;
-            //switch set of sprites to be used
-            global.playerObject.switchCurrentSprites(8, 10);
             lastPressedKey = event.key;
-            // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
             break;
         case "s":
-            // IDLE
-            // if (global.playerObject.xVelocity == 0)
-            //     global.playerObject.switchCurrentSprites(1,1);
+            global.playerObject.switchCurrentSprites(4, 7);
             global.playerObject.xVelocity = 0;
             global.playerObject.yVelocity = 200;
-            //switch set of sprites to be used
-            global.playerObject.switchCurrentSprites(4,6);
             lastPressedKey = event.key;
-            // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
+            break;
+        case "v":
+            // Debugging enemy
+            console.log("enemy1: ", global.enemy1.width, global.enemy1.height, global.enemy1.x, global.enemy1.y);
+            console.log("enemy2: ", global.enemy2.width, global.enemy2.height, global.enemy2.x, global.enemy2.y);
+            console.log("spaceship: ", global.spaceship.width, global.spaceship.height, global.spaceship.x, global.spaceship.y);
             break;
     }
 }
 
 export function stop(event) {
     if (event.key === lastPressedKey) {
-        //stop
+        // Stop movement
         global.playerObject.xVelocity = 0;
         global.playerObject.yVelocity = 0;
+        lastPressedKey = null; // Reset lastPressedKey
     }
 }
+
+
+//     // movement for player, for WASD
+//     switch (event.key) {
+//         case "d":
+//             if (global.playerObject.xVelocity == 0)
+//                 global.playerObject.switchCurrentSprites(12, 15);
+//             //switch current sprites to be used
+//             // global.playerObject.switchCurrentSprites(12, 15);
+//             global.playerObject.xVelocity = 200;
+//             global.playerObject.yVelocity = 0;
+//             lastPressedKey = event.key;
+//             // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
+//             break;
+//         case "a":
+//             // if (global.playerObject.xVelocity == 0)
+//             //     global.playerObject.switchCurrentSprites(9, 17);
+//             //switch current sprites to be used
+//             if (global.playerObject.xVelocity == 0)
+//                 global.playerObject.switchCurrentSprites(16, 19);
+//             global.playerObject.xVelocity = -200;
+//             global.playerObject.yVelocity = 0;
+//             lastPressedKey = event.key;
+//             // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
+//             break;
+//         case "w":
+//             //switch set of sprites to be used
+//             if (global.playerObject.yVelocity == 0)
+//                 global.playerObject.switchCurrentSprites(8, 11);
+//             global.playerObject.xVelocity = 0;
+//             global.playerObject.yVelocity = -200;
+//             lastPressedKey = event.key;
+//             // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
+//             break;
+//         case "s":
+//             // IDLE
+//             // if (global.playerObject.xVelocity == 0)
+//             //     global.playerObject.switchCurrentSprites(1,1);
+//             //switch set of sprites to be used
+//             if (global.playerObject.yVelocity == 0){
+//                 global.playerObject.switchCurrentSprites(4, 7);
+//                 console.log("going down");
+//             }
+//             global.playerObject.xVelocity = 0;
+//             global.playerObject.yVelocity = 200;
+//             lastPressedKey = event.key;
+//             // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
+//             break;
+//         case "v":
+//             //debugging enemy
+//             console.log("enemy1: ", global.enemy1.width, global.enemy1.height, global.enemy1.x, global.enemy1.y)
+//             console.log("enemy2: ", global.enemy2.width, global.enemy2.height, global.enemy2.x, global.enemy2.y)
+//             console.log("spaceship: ", global.spaceship.width, global.spaceship.height, global.spaceship.x, global.spaceship.y)
+//             break;
+//     }
+// }
+
+// export function stop(event) {
+//     if (event.key === lastPressedKey) {
+//         //stop
+//         global.playerObject.xVelocity = 0;
+//         global.playerObject.yVelocity = 0;
+//     }
+
 
 //function to either install scraps or drop them   
 export function manageInventory(event) {
@@ -71,7 +129,7 @@ export function manageInventory(event) {
                 global.playerObject.collidingScrap.active = false;
                 //player is no longer colliding with the scrap (and can't pick it up)
                 global.playerObject.collidingScrap = null;
-                
+
                 //put in inventory space
                 // global.playerObject.collidingScrap.x = 310 + 10 + 50 + 10 + 50 + 10;
                 // global.playerObject.collidingScrap.y = 600 - 10 - 50;
@@ -110,7 +168,7 @@ export function manageInventory(event) {
                 if (global.installedScraps.length < 4) {
                     for (let i in global.installedScraps) {
                         global.installedScraps[i].x = (global.canvas.width / 2 - 120 / 2 + 10 + (35 * i));
-                        global.installedScraps[i].y = 10 + 10;
+                        global.installedScraps[i].y = 30;
                     }
                     //put in lower row in spaceship
                 } else {
@@ -133,7 +191,7 @@ export function manageInventory(event) {
                 let removedScrap = global.installedScraps.pop();
                 console.log("installed scraps: ", global.installedScraps);
                 console.log("removed scrap: ", removedScrap);
-                
+
                 //reset the coordinates of the extracted scrap
                 //drop above if middle of character is below middle of canvas
                 if (global.playerObject.y + global.playerObject.height / 2 > global.canvas.height / 2) {

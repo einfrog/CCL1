@@ -15,6 +15,10 @@ import { move, stop, manageInventory } from "./input.js";
 function gameLoop(totalRunningTime) {
     global.deltaTime = totalRunningTime - global.prevTotalRunningTime; // Time in milliseconds between frames
     global.deltaTime /= 1000; // Convert milliseconds to seconds for consistency in calculations
+
+    global.deltaTime = Math.min(global.deltaTime, 0.1); // clamp deltatime and limit to 100ms/frame
+
+
     global.prevTotalRunningTime = totalRunningTime; // Save the current state of "totalRunningTime", so at the next call of gameLoop (== next frame) to calculate deltaTime again for that next frame.
     global.ctx.clearRect(0, 0, global.canvas.width, global.canvas.height); // Completely clear the canvas for the next graphical output 
 
@@ -29,7 +33,7 @@ function gameLoop(totalRunningTime) {
 
     }
 
-    // console.log(global.enemy)
+    console.log("enemy1: ", global.enemy1);
     // console.log(global.playerObject.nearSpaceship);
     // console.log(global.playerObject.x, global.playerObject.y)
     requestAnimationFrame(gameLoop); //keeps gameLoop running
@@ -62,6 +66,9 @@ function setupGame() {
     const defaultScrapSize = 30;
     const displayScrapSize = 50;
     const margin = 10;
+
+    global.spaceship = new Spaceship(global.canvas.width / 2 - 120 / 2, margin, 120, 120, "./img/spaceship.png");
+
 
     //draw the scraps from the recipe
     for (const i of global.recipeScrapIDs) {
@@ -98,13 +105,12 @@ function setupGame() {
     global.playerObject = new RoryPlayer(100, 360, 100, 115);
 
     // global.enemy = new Enemy(400, 300, 80, 80);
-    new Enemy(400, 300, 80, 80);
-    new Enemy(800, 300, 80, 80);
+    global.enemy1 = new Enemy(400, 300, 80, 80);
+    global.enemy2 = new Enemy(800, 300, 80, 80);
 
     // global.inventory = new Inventory(global.canvas.width / 2 - 180 / 2, 600 - 60 - margin, "./img/inventoryPlaceholder.png");
     // global.healthbar = new Healthbar(margin, margin, "./img/healthbarPlaceholder.png");
     global.recipeBox = new RecipeBox(recipeBoxX, margin, "./img/recipeBoxPlaceholder.png");
-    global.spaceship = new Spaceship(global.canvas.width / 2 - 120 / 2, margin, 120, 120, "./img/spaceshipPlaceholder.png");
     global.spaceShipVicinity = new SpaceShipVicinity;
 
 
@@ -157,8 +163,16 @@ document.getElementById("playButton").addEventListener("click", function (button
 })
 
 
+// document.addEventListener("visibilitychange", () => {
+//     if (!document.hidden) {
+//         global.prevTotalRunningTime = performance.now();
+//     }
+// })
+
 document.addEventListener("visibilitychange", () => {
     if (!document.hidden) {
+        // Reset `prevTotalRunningTime` to the current time
         global.prevTotalRunningTime = performance.now();
+        global.deltaTime = 0; // Ensure no large jump in deltaTime on resume
     }
-})
+});
