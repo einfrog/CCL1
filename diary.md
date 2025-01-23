@@ -100,7 +100,7 @@ fix runtime; game deltatime does not continue being calculated when tabbed out o
 \
 \
 \
-Jan 21st:\
+JAN 21st:\
 DONE TODAY:\
 redesign main charactert\
 draw heart pngs\
@@ -132,23 +132,26 @@ color enemy sprites\
 correct and continue rory's sprite and start coloring\
 polish hearts\
 draw instruction box\
-implement hearts and instruction box\
+implement newly drawn hearts and instruction box\
 \
 \
 \
 \
 JAN 23rd\
-PLANNED TODAY:\
-\
-FINISH COLORING RORY'S SPRITES!!!!\
-BACKGROUND!!!!\
-implement idle sprites\
+DONE TODAY:\
+redo CSS for laptop screen size\
+finish and implement rory's sprites\
+implement idle sprites for rory\
+reworked background\
 adjust sizes and speed\
+put inventory and spaceship scrap management on same key\
+draw finished spaceship art\
+\
+PLANNED TODAY:\
+drawing scraps over character when character carries them\
 adjust collision detection for non-rectangle objects\
 add buttons for controls and story\
 draw and implement spaceship (construction) sprites\
-DONE TODAY:\
-\
 \
 \
 DOING NEXT:\
