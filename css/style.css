@@ -14,9 +14,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* full viewport height */
-    margin: 0; /* remove default margin */
-    background-color: #272525; /* background for viewport */
+    height: 100vh;
+    /* full viewport height */
+    margin: 0;
+    /* remove default margin */
+    background-color: #272525;
+    /* background for viewport */
 }
 
 
@@ -49,9 +52,12 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%; /* Match canvas width */
-    height: 100%; /* Match canvas height */
-    z-index: 0; /* Ensure it appears above the canvas */
+    width: 100%;
+    /* Match canvas width */
+    height: 100%;
+    /* Match canvas height */
+    z-index: 0;
+    /* Ensure it appears above the canvas */
     border-radius: 8px;
 }
 
@@ -69,7 +75,7 @@ body {
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    z-index: 2; 
+    z-index: 2;
 }
 
 #gameplayButton {
@@ -86,8 +92,9 @@ body {
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    z-index: 2; 
+    z-index: 2;
 }
+
 #storyButton {
     position: absolute;
     left: 72%;
@@ -102,7 +109,7 @@ body {
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    z-index: 2; 
+    z-index: 2;
 }
 
 #backButton {
@@ -120,7 +127,7 @@ body {
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    z-index: 2; 
+    z-index: 2;
 }
 
 
@@ -154,13 +161,96 @@ body {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-audio {
+#audioPlayer {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 100;
-    /* background-color: #5a3973;
+    background-color: rgba(25, 25, 25, 0.6);
+    padding: 8px 12px;
     border-radius: 8px;
-    padding: 5px; */
-    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    width: 200px; /* Fixed width for the controls container */
+    height: auto; /* Allow height to adjust as necessary */
+}
+
+#pauseButton {
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#pauseButton:hover {
+    background-color: #555;
+}
+
+#seekBar, #volumeSlider {
+    width: 120px;
+    background: #444;
+    height: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    appearance: none;
+}
+
+#seekBar::-webkit-slider-thumb, #volumeSlider::-webkit-slider-thumb {
+    appearance: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+}
+
+#seekBar::-moz-range-thumb, #volumeSlider::-moz-range-thumb {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+}
+
+#timeDisplay {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: "Chakra Petch", sans-serif;
+    color: #d7d6d6;
+    font-size: 14px;
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+#muteButton {
+    background: none;
+    border: none;
+    color: #ddd;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#muteButton:hover {
+    color: #bbb;
+}
+
+#currentTime,
+#duration {
+    color: #bbb;
+}
+
+span {
+    color: #bbb;
+}
+
+#volumeControls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }

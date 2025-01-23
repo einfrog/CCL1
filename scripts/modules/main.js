@@ -160,19 +160,21 @@ function startGame(button) {
 function showGameplay() {
     hideAllButtons();
     global.backButton.style.display = "block";
-    console.log("show gameplayyy");
-    // global.changeDisplay("");
+    global.changeDisplay("./img/gameplay.png");
 }
 
 function showStory() {
     hideAllButtons();
     global.backButton.style.display = "block";
-    console.log("show storyyy");
-    // global.changeDisplay("");
+    global.changeDisplay("./img/story.png");
 }
 
 function showStartScreen() {
-    console.log("show start screeeeen");
+    global.backButton.style.display = "none";
+    global.changeDisplay("./img/startscreen.png");
+    global.playButton.style.display = "block";
+    global.gameplayButton.style.display = "block";
+    global.storyButton.style.display = "block";
 }
 
 // event listeners for all buttons
@@ -187,7 +189,9 @@ document.getElementById("backButton").addEventListener("click", showStartScreen)
 
 function hideAllButtons() {
     document.querySelectorAll("button").forEach((button) => {
-        button.style.display = "none";
+        if (button.id !== "pauseButton" && button.id !== "muteButton") {
+            button.style.display = "none";
+        }
     });
 }
 

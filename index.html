@@ -29,15 +29,32 @@
 
         <div id="credits">Idea, Programming and Art by Johanna Mayr | Music by Erik Kahri</div>
     </div>
-    
-    <audio autoplay loop controls muted>
+
+    <div id="audioPlayer">
+
+        <button id="pauseButton">▶</button>
+        
+        <div id="timeDisplay">
+            <span id="currentTime">0:00</span> <span>/</span>
+            <span id="duration">0:00</span>
+            <input type="range" id="seekBar" value="0" max="100">
+        </div>
+
+        <div id="volumeControls">
+            <button id="muteButton">⊘</button>
+            <input type="range" id="volumeSlider" value="100" max="100">
+        </div>
+    </div>
+
+    <audio id="audioElement" autoplay loop>
         <source src="./assets/CosmicScatter_ErikKahri.mp3" type="audio/mpeg">
-        If you're reading this, your browser does not support audio elements.
+        If you're reading this, your browser does not support the audio element.
     </audio>
 
     <script type="module" src="./scripts/modules/global.js"></script>
     <script type="module" src="./scripts/modules/input.js"></script>
     <script type="module" src="./scripts/modules/main.js"></script>
+    <script type="module" src="./scripts/modules/audio.js"></script>
 
 </body>
 
