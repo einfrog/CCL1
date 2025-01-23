@@ -149,18 +149,13 @@ draw finished spaceship art\
 adjust collision detection for Rory because of her big hair\
 prepare Pitch (do slides on figma)\
 add buttons for controls and story\
-\
-\
-\
-LEFT TODAY:\
-add functionality to gameplay, story and back button\
+added functionality to gameplay, story and back button\
 polish the implementation of background music\
+implemented pause, mute, and volume controls for background music\
 \
 \
 TO DO:\
 draw and implement spaceship (construction) sprites\
-\
-\
 VERY IMPORTANT BEORE HANDING IN:\
 fix bugs with enemies: sometimes spawns on top of player and immediately subtracts one heart\
 check parameters and values for constructors in main\
