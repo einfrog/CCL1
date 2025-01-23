@@ -29,9 +29,9 @@ body {
 
 #canvasContainer {
     position: relative;
-    width: 1200px;
-    height: 720px;
-    margin-bottom: 20px;
+    width: 972px;
+    height: 583px;
+    margin-bottom: 10px;
 }
 
 #canvas {
@@ -41,6 +41,8 @@ body {
     background-position: center;
     display: block;
     border-radius: 8px;
+    width: 100%;
+    height: 100%;
 }
 
 #displayScreen {
@@ -70,7 +72,74 @@ body {
     z-index: 2; 
 }
 
+#gameplayButton {
+    position: absolute;
+    left: 72%;
+    top: 72%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    background-color: #5a3973;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 2; 
+}
+#storyButton {
+    position: absolute;
+    left: 72%;
+    top: 82%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    background-color: #5a3973;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 2; 
+}
+
+#backButton {
+    display: none;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    background-color: #5a3973;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 2; 
+}
+
+
 #playButton:hover {
+    background-color: #502d6b;
+    color: white;
+}
+
+#gameplayButton:hover {
+    background-color: #502d6b;
+    color: white;
+}
+
+#storyButton:hover {
+    background-color: #502d6b;
+    color: white;
+}
+
+#backButton:hover {
     background-color: #502d6b;
     color: white;
 }

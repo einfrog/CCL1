@@ -5,7 +5,7 @@ let lastPressedKey;
 export function move(event) {
     // Check if the current key is already being handled
     if (event.key === lastPressedKey) {
-        return; // Exit if the same key is still pressed
+        return; // exit if the same key is still pressed
     }
 
     // Movement for player, for WASD
@@ -15,31 +15,35 @@ export function move(event) {
             global.playerObject.xVelocity = 200;
             global.playerObject.yVelocity = 0;
             lastPressedKey = event.key;
+            global.playerObject.lastDirection = "right";
             break;
         case "a":
             global.playerObject.switchCurrentSprites(16, 19);
             global.playerObject.xVelocity = -200;
             global.playerObject.yVelocity = 0;
             lastPressedKey = event.key;
+            global.playerObject.lastDirection = "left";
             break;
         case "w":
             global.playerObject.switchCurrentSprites(8, 11);
             global.playerObject.xVelocity = 0;
             global.playerObject.yVelocity = -200;
             lastPressedKey = event.key;
+            global.playerObject.lastDirection = "up";
             break;
         case "s":
             global.playerObject.switchCurrentSprites(4, 7);
             global.playerObject.xVelocity = 0;
             global.playerObject.yVelocity = 200;
             lastPressedKey = event.key;
+            global.playerObject.lastDirection = "down";
             break;
-        case "v":
-            // Debugging enemy
-            console.log("enemy1: ", global.enemy1.width, global.enemy1.height, global.enemy1.x, global.enemy1.y);
-            console.log("enemy2: ", global.enemy2.width, global.enemy2.height, global.enemy2.x, global.enemy2.y);
-            console.log("spaceship: ", global.spaceship.width, global.spaceship.height, global.spaceship.x, global.spaceship.y);
-            break;
+        // case "v":
+        //     // Debugging enemy
+        //     console.log("enemy1: ", global.enemy1.width, global.enemy1.height, global.enemy1.x, global.enemy1.y);
+        //     console.log("enemy2: ", global.enemy2.width, global.enemy2.height, global.enemy2.x, global.enemy2.y);
+        //     console.log("spaceship: ", global.spaceship.width, global.spaceship.height, global.spaceship.x, global.spaceship.y);
+        //     break;
     }
 }
 
@@ -49,184 +53,99 @@ export function stop(event) {
         global.playerObject.xVelocity = 0;
         global.playerObject.yVelocity = 0;
         lastPressedKey = null; // Reset lastPressedKey
+
+        switch (global.playerObject.lastDirection) {
+            case "down":
+                global.playerObject.switchCurrentSprites(0, 0)
+                break;
+            case "up":
+                global.playerObject.switchCurrentSprites(1, 1);
+                break;
+            case "left":
+                global.playerObject.switchCurrentSprites(3, 3);
+                break;
+            case "right":
+                global.playerObject.switchCurrentSprites(2, 2);
+                break;
+        }
     }
 }
-
-
-//     // movement for player, for WASD
-//     switch (event.key) {
-//         case "d":
-//             if (global.playerObject.xVelocity == 0)
-//                 global.playerObject.switchCurrentSprites(12, 15);
-//             //switch current sprites to be used
-//             // global.playerObject.switchCurrentSprites(12, 15);
-//             global.playerObject.xVelocity = 200;
-//             global.playerObject.yVelocity = 0;
-//             lastPressedKey = event.key;
-//             // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
-//             break;
-//         case "a":
-//             // if (global.playerObject.xVelocity == 0)
-//             //     global.playerObject.switchCurrentSprites(9, 17);
-//             //switch current sprites to be used
-//             if (global.playerObject.xVelocity == 0)
-//                 global.playerObject.switchCurrentSprites(16, 19);
-//             global.playerObject.xVelocity = -200;
-//             global.playerObject.yVelocity = 0;
-//             lastPressedKey = event.key;
-//             // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
-//             break;
-//         case "w":
-//             //switch set of sprites to be used
-//             if (global.playerObject.yVelocity == 0)
-//                 global.playerObject.switchCurrentSprites(8, 11);
-//             global.playerObject.xVelocity = 0;
-//             global.playerObject.yVelocity = -200;
-//             lastPressedKey = event.key;
-//             // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
-//             break;
-//         case "s":
-//             // IDLE
-//             // if (global.playerObject.xVelocity == 0)
-//             //     global.playerObject.switchCurrentSprites(1,1);
-//             //switch set of sprites to be used
-//             if (global.playerObject.yVelocity == 0){
-//                 global.playerObject.switchCurrentSprites(4, 7);
-//                 console.log("going down");
-//             }
-//             global.playerObject.xVelocity = 0;
-//             global.playerObject.yVelocity = 200;
-//             lastPressedKey = event.key;
-//             // console.log(global.firstSpriteIndex, global.animationData.firstSpriteIndex, global.animationData.lastSpriteIndex);
-//             break;
-//         case "v":
-//             //debugging enemy
-//             console.log("enemy1: ", global.enemy1.width, global.enemy1.height, global.enemy1.x, global.enemy1.y)
-//             console.log("enemy2: ", global.enemy2.width, global.enemy2.height, global.enemy2.x, global.enemy2.y)
-//             console.log("spaceship: ", global.spaceship.width, global.spaceship.height, global.spaceship.x, global.spaceship.y)
-//             break;
-//     }
-// }
-
-// export function stop(event) {
-//     if (event.key === lastPressedKey) {
-//         //stop
-//         global.playerObject.xVelocity = 0;
-//         global.playerObject.yVelocity = 0;
-//     }
-
 
 //function to either install scraps or drop them   
 export function manageInventory(event) {
 
     switch (event.key) {
-        //pick up scrap
+        // manage inventory(scrap)
         case "j":
-            if (global.playerObject.collidingScrap !== null) {
+            if (global.inventoryScrap === null && global.playerObject.collidingScrap !== null) {
+                // Pick up scrap
                 global.inventoryScrap = global.playerObject.collidingScrap;
-                console.log("InventoryScrap: ", global.inventoryScrap);
-
+                console.log("Picked up scrap:", global.inventoryScrap);
                 global.playerObject.collidingScrap.active = false;
-                //player is no longer colliding with the scrap (and can't pick it up)
                 global.playerObject.collidingScrap = null;
-
-                //put in inventory space
-                // global.playerObject.collidingScrap.x = 310 + 10 + 50 + 10 + 50 + 10;
-                // global.playerObject.collidingScrap.y = 600 - 10 - 50;
-            }
-            break;
-
-        //drop scrap
-        case "k":
-            if (global.inventoryScrap !== null) {
-                //drop scraps above or below character
-                console.log("dropping scrap");
-                //drop above if middle of character is below middle of canvas
+            } else if (global.inventoryScrap !== null) {
+                // Drop scrap
+                console.log("Dropping scrap");
                 if (global.playerObject.y + global.playerObject.height / 2 > global.canvas.height / 2) {
-                    global.inventoryScrap.y = global.playerObject.y - 100;
+                    global.inventoryScrap.y = global.playerObject.y - 100; // Drop above
                 } else {
-                    //drop below if middle of character is above middle of canvas
-                    global.inventoryScrap.y = global.playerObject.y + global.playerObject.height + 100;
+                    global.inventoryScrap.y = global.playerObject.y + global.playerObject.height + 100; // Drop below
                 }
                 global.inventoryScrap.x = global.playerObject.x;
                 global.inventoryScrap.active = true;
-                console.log(global.inventoryScrap);
+                console.log("Dropped scrap:", global.inventoryScrap);
                 global.inventoryScrap = null;
             }
             break;
-        //install scrap
-        case "l":
-            // check if the inventory slot is empty and if the colliding object is spaceship vicinity
-            if (global.inventoryScrap !== null && global.playerObject.collidingObjects["SpaceshipVicinity"]) {
-                console.log("installing scrap");
-                global.installedScraps.push(global.inventoryScrap);
-                console.log("Installed Scraps: ", global.installedScraps);
-                global.inventoryScrap = null;
-                console.log("Inventory Scrap: ", global.inventoryScrap);
 
-                //put in upper row in spaceship
+        // manage installed scraps
+        case "l":
+            if (global.inventoryScrap !== null && global.playerObject.collidingObjects["SpaceshipVicinity"]) {
+                // Install scrap
+                console.log("Installing scrap");
+                global.installedScraps.push(global.inventoryScrap);
+                console.log("Installed scraps:", global.installedScraps);
+                global.inventoryScrap = null;
+
+                // Position the scraps in the spaceship
                 if (global.installedScraps.length < 4) {
                     for (let i in global.installedScraps) {
-                        global.installedScraps[i].x = (global.canvas.width / 2 - 120 / 2 + 10 + (35 * i));
-                        global.installedScraps[i].y = 30;
+                        global.installedScraps[i].x =
+                            global.canvas.width / 2 - 150 / 2 + 10 + 45 * i;
+                        global.installedScraps[i].y = 40;
                     }
-                    //put in lower row in spaceship
                 } else {
                     for (let i = 3; i < global.installedScraps.length; i++) {
-                        console.log(global.installedScraps[i]);
-                        global.installedScraps[i].x = (global.canvas.width / 2 - 120 / 2 + 10 + 20 + (35 * (i - 3)));
-                        global.installedScraps[i].y = 10 + 70;
+                        global.installedScraps[i].x =
+                            global.canvas.width / 2 - 150 / 2 + 10 + 20 + 45 * (i - 3);
+                        global.installedScraps[i].y = 10 + 80;
                     }
                 }
                 global.checkScraps();
-            }
-            break;
-        //extract scrap from spaceship (if wrongfully installed)
-        case "i":
-            // check if there is a scrap to extract and if the colliding object is spaceship vicinity
-            if (global.installedScraps.length > 0 && global.playerObject.collidingObjects["SpaceshipVicinity"]) {
-                console.log("can extract scrap");
-                // console.log("installed scraps length: ", global.installedScraps.length);
-                // remove last index and store the removed item
+            } else if (global.installedScraps.length > 0 && global.playerObject.collidingObjects["SpaceshipVicinity"]) {
+                // Extract scrap
+                console.log("Extracting scrap");
                 let removedScrap = global.installedScraps.pop();
-                console.log("installed scraps: ", global.installedScraps);
-                console.log("removed scrap: ", removedScrap);
+                console.log("Removed scrap:", removedScrap);
 
-                //reset the coordinates of the extracted scrap
-                //drop above if middle of character is below middle of canvas
                 if (global.playerObject.y + global.playerObject.height / 2 > global.canvas.height / 2) {
-                    removedScrap.y = global.playerObject.y - 100;
+                    removedScrap.y = global.playerObject.y - 100; // Drop above
                 } else {
-                    //drop below if middle of character is above middle of canvas
-                    removedScrap.y = global.playerObject.y + global.playerObject.height + 100;
+                    removedScrap.y = global.playerObject.y + global.playerObject.height + 100; // Drop below
                 }
                 removedScrap.active = true;
                 removedScrap.x = global.playerObject.x;
             } else {
-                console.log("no scrap to extract");
+                console.log("No scrap to install or extract or not in Vicinity of Spaceship");
             }
             break;
-
-
     }
-
-
-    // for (let i in global.installedScraps) {
-    //     if (global.installedScraps.length < 4) {
-    //         global.installedScraps[i].x = (global.canvas.width / 2 - 120 / 2 + 10 + (35 * i));
-    //         global.installedScraps[i].y = 10 + 10;
-    //     } else {
-    //         global.installedScraps[i].x = (global.canvas.width / 2 - 120 / 2 + 10 + (35 * i));
-    //         global.installedScraps[i].y = 10 + 70;
-    //     }
-
-    // }
 
 }
 
 
 
-// //add movement to pressing WASD
+// //add movement to pressing WASD ---> moved to startGame()
 // document.addEventListener("keypress", move);
 
 // document.addEventListener("keypress", manageInventory);

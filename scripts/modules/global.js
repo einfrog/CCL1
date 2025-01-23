@@ -5,7 +5,10 @@ const global = {};
 global.canvas = document.querySelector("#canvas");
 global.ctx = canvas.getContext("2d");
 global.displayScreen = document.getElementById("displayScreen");
-global.button = document.getElementById("playButton");
+global.playButton = document.getElementById("playButton");
+global.gameplayButton = document.getElementById("gameplayButton");
+global.storyButton = document.getElementById("storyButton");
+global.backButton = document.getElementById("backButton");
 global.prevTotalRunningTime = 0;
 global.deltaTime = 0;
 global.allGameObjects = [];
@@ -27,6 +30,8 @@ global.gameOver = false;
 global.hearts = [];
 global.enemy1 = {};
 global.enemy2 = {};
+global.enemy3 = {};
+global.enemy4 = {};
 
 
 global.getCanvasBounds = function () {
@@ -114,6 +119,7 @@ global.checkScraps = function () {
 }
 
 global.changeDisplay = function (targetSource) {
+    this.displayScreen.src = targetSource;
     this.displayScreen.style.display = "block";
     this.displayScreen.src = targetSource;
 }
@@ -128,12 +134,11 @@ global.endGame = function (won) {
         document.removeEventListener("keypress", manageInventory);
         document.removeEventListener("keyup", stop);
         this.changeDisplay(won ? "./img/gamewonscreen.png" : "./img/gameoverscreen.png");
-        this.button.style.display = "block";
-        this.button.textContent = "Try again!";
+        this.playButton.style.display = "block";
+        this.playButton.textContent = "Try again!";
         // this.gameOver = true;
     }
 }
-
 
 
 export { global }

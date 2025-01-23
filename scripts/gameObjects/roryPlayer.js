@@ -37,7 +37,7 @@ class RoryPlayer extends BaseGameObject {
             global.playerObject.switchCurrentSprites(this.animationData.firstSpriteIndex, this.animationData.firstSpriteIndex);
         }
 
-        if (global.gameOver !== true){
+        if (global.gameOver !== true) {
             // console.log("health: ", global.playerObject.health);
 
         }
@@ -45,6 +45,17 @@ class RoryPlayer extends BaseGameObject {
         // console.log(this.collidingObjects["SpaceshipVicinity"]);
         // console.log(this.receivedDamage);
         // console.log(this.animationData.currentSpriteIndex)
+    }
+
+    //make bounds smaller because of her big hair
+    getBoxBounds = function() {
+        let bounds = {
+            left: this.x + 20,
+            right: this.x + this.width - 20,
+            top: this.y,
+            bottom: this.y + this.height
+        }
+        return bounds;
     }
 
     reactToCollision = function (collidingObject) {
@@ -78,7 +89,7 @@ class RoryPlayer extends BaseGameObject {
     constructor(x, y, width, height) {
         super(x, y, width, height);
         //this.loadImages(["./images/apple.png"]);
-        this.loadImagesFromSpritesheet("./img/spriteTest.png", 4, 5);
+        this.loadImagesFromSpritesheet("./img/rorySprites.png", 4, 5);
     }
 
     // reactToCollision = function(collidingObject) {

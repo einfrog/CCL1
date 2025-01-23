@@ -1,7 +1,5 @@
 import { RoryPlayer } from "../gameObjects/roryPlayer.js";
-import { Inventory } from "../gameObjects/inventory.js";
 import { global } from "./global.js";
-import { Healthbar } from "../gameObjects/healthbar.js";
 import { RecipeBox } from "../gameObjects/recipeBox.js";
 import { Scrap } from "../gameObjects/scrap.js";
 import { DisplayScrap } from "../gameObjects/displayScrap.js";
@@ -62,12 +60,12 @@ function setupGame() {
 
 
     //set variables to make debugging easier
-    const recipeBoxX = global.canvas.width - 280;
-    const defaultScrapSize = 30;
-    const displayScrapSize = 50;
+    const recipeBoxX = global.canvas.width - 330;
+    const defaultScrapSize = 40;
+    const displayScrapSize = 60;
     const margin = 10;
 
-    global.spaceship = new Spaceship(global.canvas.width / 2 - 120 / 2, margin, 120, 120, "./img/spaceship.png");
+    global.spaceship = new Spaceship(global.canvas.width / 2 - 150 / 2, margin, 150, 150, "./img/spaceship.png");
 
 
     //draw the scraps from the recipe
@@ -75,7 +73,7 @@ function setupGame() {
         //check if id is correct
         // console.log("recipe scraps: ", global.recipeScrapIDs);
         // console.log("i: ", i);
-        global.getRandomCoordinates(defaultScrapSize, global.getCanvasBounds().right - defaultScrapSize, 130, global.getCanvasBounds().bottom - defaultScrapSize);
+        global.getRandomCoordinates(defaultScrapSize, global.getCanvasBounds().right - defaultScrapSize, 150 + defaultScrapSize, global.getCanvasBounds().bottom - defaultScrapSize);
         global.scraps.push(new Scrap(global.randomX, global.randomY, defaultScrapSize, defaultScrapSize, `./img/scraps/scrap${i}.png`, i));
         //check properties of drawn scraps
         // console.log("Scraps: ", global.scraps);
@@ -87,7 +85,7 @@ function setupGame() {
         //get random coordinates for the scraps
         //provide restriction parameters so scraps don't spawn under ui recipeBox, healthbar or inventory
         //get random coordinates for drwing the scraps
-        global.getRandomCoordinates(100, global.getCanvasBounds().right - defaultScrapSize, 130, 530 - defaultScrapSize);
+        global.getRandomCoordinates(defaultScrapSize, global.getCanvasBounds().right - defaultScrapSize, 150 + margin + defaultScrapSize, 530 - defaultScrapSize);
         // test random coordinates
         // console.log(global.randomX, global.randomY);
 
@@ -104,12 +102,11 @@ function setupGame() {
     //instantiate objects
     global.playerObject = new RoryPlayer(100, 360, 100, 115);
 
-    // global.enemy = new Enemy(400, 300, 80, 80);
-    global.enemy1 = new Enemy(400, 300, 80, 80);
-    global.enemy2 = new Enemy(800, 300, 80, 80);
+    global.enemy1 = new Enemy(400, 300, 100, 100);
+    global.enemy2 = new Enemy(800, 300, 100, 100);
+    global.enemy3 = new Enemy(800, 500, 100, 100);
+    global.enemy4 = new Enemy(400, 500, 100, 100);
 
-    // global.inventory = new Inventory(global.canvas.width / 2 - 180 / 2, 600 - 60 - margin, "./img/inventoryPlaceholder.png");
-    // global.healthbar = new Healthbar(margin, margin, "./img/healthbarPlaceholder.png");
     global.recipeBox = new RecipeBox(recipeBoxX, margin, "./img/recipeBox.png");
     global.spaceShipVicinity = new SpaceShipVicinity;
 
@@ -118,12 +115,12 @@ function setupGame() {
     // draw display scraps into the recipe box
     for (let i = 0; i < 5; i++) {
         let scrapInstance = global.recipeScrapIDs[i];
-        global.displayScraps.push(new DisplayScrap(recipeBoxX + margin + 50 * i, 15, displayScrapSize, displayScrapSize, `./img/scraps/scrap${scrapInstance}.png`, scrapInstance))
+        global.displayScraps.push(new DisplayScrap(recipeBoxX + margin + 60 * i, 15, displayScrapSize, displayScrapSize, `./img/scraps/scrap${scrapInstance}.png`, scrapInstance))
     }
 
     //health display
     for (let i = 0; i < global.playerObject.health; i++) {
-        global.hearts.push(new Heart(margin + 60 * i, 15, displayScrapSize, displayScrapSize, "./img/heart.png"));
+        global.hearts.push(new Heart(margin + 70 * i, margin, displayScrapSize, displayScrapSize, "./img/heart.png"));
     }
 
 
@@ -142,7 +139,9 @@ function setupGame() {
 }
 
 function startGame(button) {
-    button.style.display = "none";
+
+    // button.style.display = "none";
+    hideAllButtons();
     document.getElementById("displayScreen").style.display = "none";
     global.canvas.style.display = "block";
 
@@ -158,16 +157,39 @@ function startGame(button) {
     requestAnimationFrame(gameLoop);
 }
 
-document.getElementById("playButton").addEventListener("click", function (button) {
-    startGame(button.target);
-})
+function showGameplay() {
+    hideAllButtons();
+    global.backButton.style.display = "block";
+    console.log("show gameplayyy");
+    // global.changeDisplay("");
+}
 
+function showStory() {
+    hideAllButtons();
+    global.backButton.style.display = "block";
+    console.log("show storyyy");
+    // global.changeDisplay("");
+}
 
-// document.addEventListener("visibilitychange", () => {
-//     if (!document.hidden) {
-//         global.prevTotalRunningTime = performance.now();
-//     }
-// })
+function showStartScreen() {
+    console.log("show start screeeeen");
+}
+
+// event listeners for all buttons
+document.getElementById("playButton").addEventListener("click",
+    startGame);
+
+document.getElementById("gameplayButton").addEventListener("click", showGameplay);
+
+document.getElementById("storyButton").addEventListener("click", showStory);
+
+document.getElementById("backButton").addEventListener("click", showStartScreen);
+
+function hideAllButtons() {
+    document.querySelectorAll("button").forEach((button) => {
+        button.style.display = "none";
+    });
+}
 
 document.addEventListener("visibilitychange", () => {
     if (!document.hidden) {
