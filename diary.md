@@ -146,21 +146,19 @@ reworked background\
 adjust sizes and speed\
 put inventory and spaceship scrap management on same key\
 draw finished spaceship art\
-\
-PLANNED TODAY:\
-drawing scraps over character when character carries them\
-adjust collision detection for non-rectangle objects\
+adjust collision detection for Rory because of her big hair\
+prepare Pitch (do slides on figma)\
 add buttons for controls and story\
-draw and implement spaceship (construction) sprites\
 \
 \
-DOING NEXT:\
+\
+LEFT TODAY:\
+add functionality to gameplay, story and back button\
+polish the implementation of background music\
 \
 \
 TO DO:\
-background graphic;\
-rory: sprite animation;\
-spaceship construction: sprite (5 different sprites that change with every correctly installed scrap)\
+draw and implement spaceship (construction) sprites\
 \
 \
 VERY IMPORTANT BEORE HANDING IN:\
@@ -169,6 +167,7 @@ check parameters and values for constructors in main\
 \
 \
 OPTIONAL:\
+drawing scraps over character when character carries them\
 draw obstacles on map to go around or more enemies, make map bigger and sprites smaller, to make game more interesting ("force"/encourage player to move around and collect the scraps)\
 put distances between the generated scraps\
 adjust collision detection (only for player)\
