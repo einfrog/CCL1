@@ -145,7 +145,7 @@ export function manageInventory(event) {
 
 
 
-// //add movement to pressing WASD ---> moved to startGame()
+// //add movement to pressing WASD ---> this was moved to startGame()
 // document.addEventListener("keypress", move);
 
 // document.addEventListener("keypress", manageInventory);

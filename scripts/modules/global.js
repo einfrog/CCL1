@@ -13,9 +13,6 @@ global.prevTotalRunningTime = 0;
 global.deltaTime = 0;
 global.allGameObjects = [];
 global.playerObject = {};
-global.inventory = {};
-global.healthbar = {};
-global.recipeBox = {};
 global.displayScraps = [];
 global.scraps = [];
 global.randomX = 0;
@@ -25,8 +22,6 @@ global.inventoryScrap = null;
 global.recipeScrapIDs = [];
 global.randomScrapID = 0;
 global.installedScraps = [];
-// global.enemy = {};
-global.gameOver = false;
 global.hearts = [];
 global.enemy1 = {};
 global.enemy2 = {};
@@ -136,7 +131,8 @@ global.endGame = function (won) {
         this.changeDisplay(won ? "./img/gamewonscreen.png" : "./img/gameoverscreen.png");
         this.playButton.style.display = "block";
         this.playButton.textContent = "Try again!";
-        // this.gameOver = true;
+        this.gameplayButton.style.display = "block";
+        this.storyButton.style.display = "block";
     }
 }
 

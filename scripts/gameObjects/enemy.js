@@ -24,46 +24,6 @@ class Enemy extends BaseGameObject {
         "movementChangeOppositePossibility": 0.3
     };
 
-    // update = function () {
-
-    //     //store difference of position between one frame and the next
-    //     const dx = this.xVelocity * global.deltaTime;
-    //     const dy = this.yVelocity * global.deltaTime;
-
-    //     //border collision with canvas bounds (left and right)
-    //     if (this.x + this.width >= global.getCanvasBounds().right - 50) {
-    //         // Ensure it's inside the right boundary
-    //         this.x = global.getCanvasBounds().right - this.width - 50;
-    //         this.changeMovement();
-    //     } else if (this.x < global.getCanvasBounds().left + 50) {
-    //         // Ensure it's inside the left boundary
-    //         this.x = global.getCanvasBounds().left + 50;
-    //         this.changeMovement();
-    //     }
-
-    //     // border collision canvas bounds (top and bottom)
-    //     if (this.y + this.height >= global.getCanvasBounds().bottom) {
-    //         // Ensure it's inside the bottom boundary
-    //         this.y = global.getCanvasBounds().bottom - this.height;
-    //         this.changeMovement();
-    //     } else if (this.y < global.getCanvasBounds().top + 100) {
-    //         // Ensure it's inside the top boundary
-    //         this.y = global.getCanvasBounds().top + 100;
-    //         this.changeMovement();
-    //     }
-
-    //     this.randomMovementData.currentDirectionElapsedTime += global.deltaTime;
-
-    //     if (this.randomMovementData.currentDirectionElapsedTime >= this.randomMovementData.timeToChangeDirection) {
-    //         this.randomizeMovement();
-    //         this.randomMovementData.currentDirectionElapsedTime = 0;
-    //     }
-
-    //     this.x += this.xVelocity * global.deltaTime;
-    //     this.y += this.yVelocity * global.deltaTime;
-
-    // }
-
     update = function () {
         // Store difference of position between one frame and the next
         const dx = this.xVelocity * global.deltaTime;

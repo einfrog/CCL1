@@ -21,7 +21,7 @@ function gameLoop(totalRunningTime) {
     global.ctx.clearRect(0, 0, global.canvas.width, global.canvas.height); // Completely clear the canvas for the next graphical output 
 
     // loop in the game loop for game objects;
-    for (var i = 0; i < global.allGameObjects.length; i++) {
+    for (let i = 0; i < global.allGameObjects.length; i++) {
         global.allGameObjects[i].storePositionOfPreviousFrame();
         global.allGameObjects[i].update();
         global.checkCollisionWithAnyOther(global.allGameObjects[i]);
@@ -41,8 +41,6 @@ function setupGame() {
     global.prevTotalRunningTime = 0;
     global.allGameObjects = [];
     global.playerObject = {};
-    global.inventory = {};
-    global.healthbar = {};
     global.recipeBox = {};
     global.displayScraps = [];
     global.scraps = [];
@@ -102,13 +100,13 @@ function setupGame() {
     //instantiate objects
     global.playerObject = new RoryPlayer(100, 360, 100, 115);
 
-    global.enemy1 = new Enemy(400, 300, 100, 100);
-    global.enemy2 = new Enemy(800, 300, 100, 100);
-    global.enemy3 = new Enemy(800, 500, 100, 100);
-    global.enemy4 = new Enemy(400, 500, 100, 100);
+    // global.enemy1 = new Enemy(400, 300, 100, 100);
+    // global.enemy2 = new Enemy(800, 300, 100, 100);
+    // global.enemy3 = new Enemy(800, 500, 100, 100);
+    // global.enemy4 = new Enemy(400, 500, 100, 100);
 
-    global.recipeBox = new RecipeBox(recipeBoxX, margin, "./img/recipeBox.png");
-    global.spaceShipVicinity = new SpaceShipVicinity;
+    new RecipeBox(recipeBoxX, margin, "./img/recipeBox.png");
+    new SpaceShipVicinity(global.spaceship.x - 25, global.spaceship.y - 25, global.spaceship.width + 50, global.spaceship.height + 50);
 
 
 
@@ -122,9 +120,6 @@ function setupGame() {
     for (let i = 0; i < global.playerObject.health; i++) {
         global.hearts.push(new Heart(margin + 70 * i, margin, displayScrapSize, displayScrapSize, "./img/heart.png"));
     }
-
-
-
 
     //check all drawn scraps
     console.log(global.scraps);
@@ -197,8 +192,8 @@ function hideAllButtons() {
 
 document.addEventListener("visibilitychange", () => {
     if (!document.hidden) {
-        // Reset `prevTotalRunningTime` to the current time
+        // reset `prevTotalRunningTime` to the current time
         global.prevTotalRunningTime = performance.now();
-        global.deltaTime = 0; // Ensure no large jump in deltaTime on resume
+        global.deltaTime = 0; // ensure no large jump in deltaTime on resume
     }
 });
