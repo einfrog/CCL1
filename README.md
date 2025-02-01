@@ -2,7 +2,7 @@
 CCL1 by Johanna Mayr
 
 ## Introduction
-**Cosmic Scatter** is a top-down action adventure, in which you have to evade enemies and collect the materials in the collect order.
+**Cosmic Scatter** is a top-down action adventure, in which you have to evade enemies and collect materials in the correct order.
 
 ### Screenshot
 <div style="text-align: center;">
