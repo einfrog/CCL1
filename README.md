@@ -23,8 +23,9 @@ The song for the background music was made by Erik Kahri, a friend of mine, who 
 </div>
 
 
-### Play the Game
-[Click here to play the game⭐](https://einfrog.github.io/CCL1/)\
+### 🎮**Play the Game**🎮
+[Click here to play the game⭐](https://einfrog.github.io/CCL1/)
+
 Since the Display Screens are Images that are loaded, it may take longer for them to load when using GITHUB Pages then it would when hosting the website locally.
 
 ## Gameplay and Mechanics
