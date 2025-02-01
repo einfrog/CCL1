@@ -24,6 +24,8 @@ The song for the background music was made by Erik Kahri, a friend of mine, who 
 
 
 ### Play the Game
+[Click here to play the game⭐](https://einfrog.github.io/CCL1/)\
+Since the Display Screens are Images that are loaded, it may take longer for them to load when using GITHUB Pages then it would when hosting the website locally.
 
 ## Gameplay and Mechanics
 In every playthrough, a random recipe of scraps is provided for you. Collect them and carry them to the spaceship construction site. If you install them in the correct order, you can complete the spaceship build and escape the planet. 
