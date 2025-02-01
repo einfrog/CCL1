@@ -70,102 +70,37 @@ body {
     border-radius: 8px;
 }
 
-#playButton {
+#playButton, #gameplayButton, #storyButton, #backButton {
     position: absolute;
-    left: 72%;
-    top: 62%;
-    transform: translate(-50%, -50%);
     border-radius: 4px;
     background-color: #5a3973;
     border: none;
     color: white;
-    font-size: 16px;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
+    font-size: clamp(12px, 0.9vw, 16px);
+    padding: 0.75vw 1.5vw;
     cursor: pointer;
     z-index: 2;
 }
 
-#gameplayButton {
-    position: absolute;
-    left: 72%;
-    top: 72%;
-    transform: translate(-50%, -50%);
-    border-radius: 4px;
-    background-color: #5a3973;
-    border: none;
-    color: white;
-    font-size: 16px;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    z-index: 2;
-}
+#playButton { left: 72%; top: 62%; transform: translate(-50%, -50%); }
+#gameplayButton { left: 72%; top: 72%; transform: translate(-50%, -50%); }
+#storyButton { left: 72%; top: 82%; transform: translate(-50%, -50%); }
+#backButton { display: none; left: 15%; top: 10%; transform: translate(-50%, -50%); }
 
-#storyButton {
-    position: absolute;
-    left: 72%;
-    top: 82%;
-    transform: translate(-50%, -50%);
-    border-radius: 4px;
-    background-color: #5a3973;
-    border: none;
-    color: white;
-    font-size: 16px;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    z-index: 2;
-}
-
-#backButton {
-    display: none;
-    position: absolute;
-    left: 15%;
-    top: 10%;
-    transform: translate(-50%, -50%);
-    border-radius: 4px;
-    background-color: #5a3973;
-    border: none;
-    color: white;
-    font-size: 16px;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    z-index: 2;
-}
-
-
-#playButton:hover {
+#playButton:hover, #gameplayButton:hover, #storyButton:hover, #backButton:hover {
     background-color: #502d6b;
-    color: white;
 }
 
-#gameplayButton:hover {
-    background-color: #502d6b;
-    color: white;
-}
-
-#storyButton:hover {
-    background-color: #502d6b;
-    color: white;
-}
-
-#backButton:hover {
-    background-color: #502d6b;
-    color: white;
+#playButton:active, #gameplayButton:active, #storyButton:active, #backButton:active {
+    background-color: #3e2155;
 }
 
 #credits {
     font-family: "Chakra Petch", sans-serif;
-    font-size: 16px;
+    font-size: clamp(12px, 0.9vw, 16px);
     color: #d7d6d6;
     background-color: rgba(25, 25, 25, 0.7);
-    padding: 10px 20px;
+    padding: 0.75vw 1.5vw;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 }
