@@ -40,7 +40,7 @@ In a distant galaxy torn apart by war, planets are falling to invading alien for
 Deemed useless by the invaders because of her age, Rory is abandoned on a barren scrap planet. But Rory isn’t just any child. She’s resourceful and clever. Her father, a skilled mechanic, taught her how to tinker and build from a young age. Now, armed with her knowledge and determination, Rory must find a way to use the planet’s discarded remnants to construct a spaceship and escape her grim fate.
 
 ## Art
-The art was done using Clip Studio Paint and a drawing tablet. The process was a lot of fun. I usually started with very primitive sprites and images to test my code and figure out what sizes I should choose for all the elements. Then, after every step in the drawing process (which were sketching, lineart, coloring and shading), I checked the sprites again to see how my design and color choices harmonized with the game design that was already in place. That way I could repeatedly check my color and design choices and iteratively adjust to achieve the desired aesthetic.
+All art assets were done by me using Clip Studio Paint and a drawing tablet. The process was a lot of fun. I usually started with very primitive sprites and images to test my code and figure out what sizes I should choose for all the elements. Then, after every step in the drawing process (which were sketching, lineart, coloring and shading), I checked the sprites again to see how my design and color choices harmonized with the game design that was already in place. That way I could repeatedly check my color and design choices and iteratively adjust to achieve the desired aesthetic.
 
 ### Rory
 <div style="text-align: center;">
@@ -72,6 +72,12 @@ The art was done using Clip Studio Paint and a drawing tablet. The process was a
   <p>🔼 The "Game Won" Screen design.</p>
   <img src="documentation_img/gameoverscreen.png" alt="Game Over Design" width="600">
   <p>🔼 The "Game Over" Screen design.</p>
+</div>
+
+### Background
+<div style="text-align: center;">
+  <img src="documentation_img/background.png" alt="Background Image" width="600">
+  <p>🔼 The underlying background image.</p>
 </div>
 
 ## Reflection
