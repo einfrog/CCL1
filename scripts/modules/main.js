@@ -100,10 +100,10 @@ function setupGame() {
     //instantiate objects
     global.playerObject = new RoryPlayer(100, 360, 100, 115);
 
-    // global.enemy1 = new Enemy(400, 300, 100, 100);
-    // global.enemy2 = new Enemy(800, 300, 100, 100);
-    // global.enemy3 = new Enemy(800, 500, 100, 100);
-    // global.enemy4 = new Enemy(400, 500, 100, 100);
+    global.enemy1 = new Enemy(400, 300, 100, 100);
+    global.enemy2 = new Enemy(800, 300, 100, 100);
+    global.enemy3 = new Enemy(800, 500, 100, 100);
+    global.enemy4 = new Enemy(400, 500, 100, 100);
 
     new RecipeBox(recipeBoxX, margin, "./img/recipeBox.png");
     new SpaceShipVicinity(global.spaceship.x - 25, global.spaceship.y - 25, global.spaceship.width + 50, global.spaceship.height + 50);
