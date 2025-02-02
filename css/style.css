@@ -31,16 +31,16 @@ body {
     flex-direction: column;
     width: 90vw;
     height: 90vh;
-    max-width: 972px;
-    max-height: 583px;
+    max-width: 1000px;
+    max-height: 600px;
 }
 
 #canvasContainer {
     position: relative;
     width: 100%;
     aspect-ratio: 5 / 3;
-    max-width: 972px;
-    max-height: 583px;
+    max-width: 1000px;
+    max-height: 600px;
     margin-bottom: 10px;
 }
 
