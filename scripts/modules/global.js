@@ -106,7 +106,7 @@ global.checkScraps = function () {
 
     if (this.recipeScrapIDs.length == installedScrapIDs.length && this.recipeScrapIDs.every((value, index) => value === installedScrapIDs[index])) {
         console.log("Spaceship completed");
-        // Call endGame after 1 second
+        // Call endGame after quarter of a second
         setTimeout(() => {
             this.endGame(true);
         }, 250);
